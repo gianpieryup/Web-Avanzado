@@ -53,32 +53,136 @@ salario(51200,10,500);
 //----------------Estructuras iterativas
 /* Ejercicio 1: Realizar un programa para ingresar desde el teclado un conjunto de números.
 Mostrarlos a medida que se los ingresa. Finalizar la lectura de datos con el valor -1.*/
-function consola(params) {
-    while(params != -1 /*El valor de la consola es != -1 */){
-        console.log(params);        
-    }
+
+function mostrarConsola() {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    console.log("Escribe un numeros, para finalizar envia -1: ");
+
+    rl.on('line', (input) => {
+        if(input == -1){
+            rl.close();
+            }
+        console.log(`Recibi: ${input}`);       
+    });
 }
+//mostrarConsola();
+
 
 /* Ejercicio 2: Realizar un programa para ingresar desde el teclado un conjunto de números. Al
 finalizar mostrar por pantalla el primer y último elemento ingresado. Finalizar la lectura con
 el valor -1.*/
+function primer_ultimo() {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    console.log("Escribe un numeros, para finalizar envia -1: ");
+    var array = [];
+    rl.on('line', (input) => {
+        if(input == -1){
+            console.log(array);  
+            console.log("El primero fue: "+array[0]+ ", el ultimo fue: "+ array[array.length-1]);
+                     
+            rl.close();
+        }
+        array.push(input);         
+    });
+}
+//primer_ultimo();
 
 
 /* Ejercicio 3: Realizar un programa para ingresar desde el teclado un conjunto de números e
 informar si la cantidad de elementos es impar o par, sin utilizar contadores. Finalizar la
 lectura de datos con el valor -1.*/
+function paridadLongitud() {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    console.log("Escribe un numeros, para finalizar envia -1: ");
+    var paridad = true;
+    rl.on('line', (input) => {
+        if(input == -1){
+            console.log("La cantidad fue "+ (paridad ? "par" : "impar"));           
+            rl.close();
+        }else{
+            paridad = !paridad ;
+        }       
+    });
+}
+//paridadLongitud();
 
 
 /* Ejercicio 4: Realizar un programa para ingresar desde el teclado un conjunto de números e
 informar el último elemento ingresado en una posición par. Finalizar la lectura de datos con
 el valor -1.
 Ejemplos: Si la secuencia es 3 7 4 5 6 7 9 -1 el valor a informar es 7 Si la secuencia es 3 7 4
-5 -1 el valor a informar es 5
-Ejercicio 5: Realizar un programa para ingresar desde el teclado un conjunto de números e
+5 -1 el valor a informar es 5*/
+function ultimoPar() {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    console.log("Escribe un numeros, para finalizar envia -1: ");
+    var array = [];
+    rl.on('line', (input) => {
+        if(input == -1){
+            console.log(array);  
+            var longitud = array.length;
+            console.log("La ultima posicion par fue: "+ array[longitud%2 == 0?longitud-1:longitud-2]);
+                     
+            rl.close();
+        }
+        array.push(input);         
+    });
+}
+//ultimoPar();
+
+
+/* Ejercicio 5: Realizar un programa para ingresar desde el teclado un conjunto de números e
 informar los elementos ingresados menores a un valor ingresado previamente. Finalizar la
 lectura de datos con el valor -1. */
+function DosReadlines() {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    console.log("Escribe primero la cota inferior");
+    var array = [];
+    var cotaInferior = 0;
+    rl.on('line', (input) => {
+        if(cotaInferior == 0){
+            cotaInferior = parseInt(input);
+            console.log("cota inferior: " + cotaInferior);    
+            console.log("Escribe los numeros, para finalizar envia -1: ");
+        }else{
+            if(parseInt(input) > cotaInferior){
+               // console.log("entro mayor a " +cotaInferior + " y el input vale " +input);
+                array.push(input);
+                            
+            }
+            if(input == -1){
+                console.log(array,"Son todos mayores a " +cotaInferior );           
+                rl.close();
+            }
+        }       
+    });
+}
+DosReadlines();
 
 
 /*Ejercicio 15: Leer diez números e imprimir el mayor, el menor y el rango del conjunto (El
     rango de un conjunto se calcula restando el mayor menos el menor).*/
-//DUDAS EL 15
