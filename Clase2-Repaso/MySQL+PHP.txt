@@ -1,0 +1,40 @@
+Char(10):  reserva 10 caracteres en memoria aunque no los use todos.
+VarChar(10):  reserva hasta 10 caracteres, depende de la longitud de la palabra la cantidad de memoria reservada
+
+¿A que se refiere las siglas CRUD?
+En informática, CRUD es el acrónimo de "Crear, Leer, Actualizar y Borrar" (del original en inglés: Create, Read, Update and Delete),
+que se usa para referirse a las funciones básicas en bases de datos o la capa de persistencia en un software. 
+
+
+Uso del PHPMyAdmin
+Acostumbrarse al entorno
+1. Prender el apache y el mysql
+2. Ingresar desde el navegador a:   localhost:8080/phpmyadmin
+
+En el XAMP dale al botom  >console
+------------------------------------------------------------------------------------------------
+---------  Por consola corre MariaDB la cual podemos pasarle querys  -------------
+------------------------------------------------------------------------------------------------
+Te quedara un cursor con la almodilla(#)
+Escribir aqui:  mysql -u root -p
+Luego te pedira la password: presiona enter
+
+//Te saldra lo siguiente----------------------------------------------
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 121
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> 	//Aqui puedes escribir consultas SQL como por ejemplo:
+---------------------------------------------------------------------------------//
+
+show databases; -- lista las bases de datos
+use carrito;  -- ingresar a la base de datos
+--------  (*)No olvidar el (;)  ------------------
+Te quedara:/// MariaDB [carrito]>  ///Esto te dice que estas parado en la base "carrito"  
+
+show tables;   -- muestra las tablas de una DB en la que estoy parado
+Tambien puedo ejecutar querys para la base en la que estoy parado
