@@ -6,6 +6,12 @@ const router = express.Router();
 const productosModel = require('../models/productosModel');
 
 router.get('/', async (req,res,next)=> {
+    if (req.query.min && req.query.max) {
+        let min = req.query.min ;
+        let max = req.query.max ;
+        let productosFiltrados = await  productosModel.buscarProductoFiltro(min,max);
+        res.json({productosFiltrados});
+    }
     try {
 
         let productos = await  productosModel.getProductos();
@@ -16,7 +22,6 @@ router.get('/', async (req,res,next)=> {
     }
 
 })
-
 
 router.get('/:id_p', async(req,res,next)=> {
 

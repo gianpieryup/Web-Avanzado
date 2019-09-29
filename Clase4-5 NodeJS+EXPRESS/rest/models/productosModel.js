@@ -7,8 +7,8 @@ async function getProductos() {
     // el bloque try catch es propio en node de funciones asincronas
     try {
         const rows = await query("SELECT * from productos");
+        console.log(rows);
         return rows;
-
     }
     catch(err){
         // bloque en caso que exista algun error 
@@ -28,7 +28,21 @@ async function getProducto(id) {
     }
 }
 
+async function buscarProductoFiltro(min,max) {
+    try {
+        const rows = await query("select * from productos where precio_p between  ? and ?",[min,max]);
+        console.log(rows);
+        
+        return rows;
+        
+      
+    } catch(err) {
+        console.log(err);
+    }
+}
+
 module.exports = {
     getProductos,
-    getProducto
+    getProducto,
+    buscarProductoFiltro
 }
