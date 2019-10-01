@@ -1,13 +1,14 @@
+require('dotenv').config();//es opcional si tu compu funciona si esto quitalo
 
 // https://www.npmjs.com/package/mysql
 const mysql = require('mysql'); // mysql hace referencia al modulo instalado
 
 const pool = mysql.createPool({
-    host : 'localhost',
+    host : process.env.DATABADE_HOST,
     port : 3306,
-    user : 'root',
-    password : '',
-    database : 'carrito',
+    user : process.env.DATABADE_USER,
+    password : process.env.DATABADE_PASSWORD,
+    database : process.env.DATABADE_NAME,
     connectionLimit : 10
 });
 // connectionLimit : definimos la cantidad maxima de conexiones simultaneas que tendrá mysql , las demas quedan pendientes (cola)

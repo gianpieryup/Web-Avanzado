@@ -5,11 +5,19 @@ const express = require('express');
 const router = express.Router(); 
 const productosModel = require('../models/productosModel');
 
+//El orden de las utas es desde las especificas hasta las mas generales
+//route.get('/precio')
+//route.get('/:id_p')
+//route.get('/')
+
+
 router.get('/', async (req,res,next)=> {
     if (req.query.min && req.query.max) {
         let min = req.query.min ;
         let max = req.query.max ;
         let productosFiltrados = await  productosModel.buscarProductoFiltro(min,max);
+        //si no tiene await,y pongo console.log(productosFiltrados) me saldra promesa pendiente por ser asincrona
+
         res.json({productosFiltrados});
     }
     try {
