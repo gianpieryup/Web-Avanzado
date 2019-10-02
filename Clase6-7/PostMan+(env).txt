@@ -1,0 +1,13 @@
+-------------------------------------------------
+----------------- CLASE 6 -----------------------
+-----------   (.ENV) | BLUEPRINT  ---------------
+-------------------------------------------------
+//El archivo (.env) nos permite tener nuestras configuraciones generales en un solo archivo
+//Para crearlo
+npm i dotenv
+
+//Para la DOCUMENTACION podemos usar el BLUEPRINT  un html que se crea a apartir de un archivo (.apib)
+documentation.apib
+//Para agregarlo
+npm i api-blueprint
+

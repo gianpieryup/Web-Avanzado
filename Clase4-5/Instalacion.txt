@@ -1,0 +1,30 @@
+-------------------------------------------------
+----------------- CLASE 4 -----------------------
+-----------  EXPRESS | NODEMON  -----------------
+-------------------------------------------------
+npm : Gestor de paquetesde NodeJS
+
+1. npm install express -g
+2. npm install express-generator -g
+Se instalan una sola vez
+
+3. Crear el proyecto con express:
+   express ejemplo1 --hbs 
+//Se creara una carpeta llamada `ejemplo1`, tendra un directorio de carpetas PUBLIC | ROUTES | BIN | VIEWS
+//Hay un archivo `package.json` ,donde estara toda la informacion y las dependencias que use.
+
+4. Pararse dentro del proyecto:	    cd ejemplo1
+5. Descargar las dependencias: 	  npm install 
+6. Instalar Nodemon:	npm i nodemon -g
+7. Ejecutar el proyecto:	nodemon npm start 
+
+-------------------------------------------------
+----------------- CLASE 5 -----------------------
+-----------    MYSQL | UTIL    ------------------
+-------------------------------------------------
+//EL modificador [--save] hace que se guarde en el (package.json)
+Para usar sentencias SQL de mysql
+npm install mysql --save
+
+Para usar promesas de las sentencias sql
+npm install util--save

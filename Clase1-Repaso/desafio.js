@@ -64,7 +64,7 @@ function informeCurso(objeto){
     promedioEdad = acumulador/cantidadAlumnos;
     console.log("La cantidad de alumnos son " + cantidadAlumnos);
     console.log("El promedio de edades " + promedioEdad);
-    console.log("La cantidad de alumnos son " + elMenor.nombre);
+    console.log("El mas joven " + elMenor.nombre);
 }
 informeCurso(curso)
 

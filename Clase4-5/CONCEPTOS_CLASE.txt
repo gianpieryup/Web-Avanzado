@@ -1,0 +1,41 @@
+﻿Martes y Jueves : Express (framework)
+NodeJS : Entorno de ejecución de codigo Javascript
+            node script.js
+
+¿Por qué node? 
+    JAVA, PHP, PYTHON
+    Generan hilos (2MB)
+    Respaldo Hardware (AWS, heroku)
+
+Programas de red mas escalables
+
+    Angular | React | Vue + NodeJS
+
+    NodeJS + HandleBars (frontend) | pug  | jade
+
+Comunidad de node express-generator
+Genera una estructura de carpetas
+
+    public (CSS, JAVASCRIPT, images)
+    routes ()
+    bin/www : Configuracion 
+    views : vistas de la Aplicacion
+    app.js : Modulos y rutas
+Diseño de software (MVC : Modelo , vista, controlador)
+
+Modelo : Interactua con la información (peticiones a la base de datos). El controlador le envía ordenes al modelo
+
+Controlador : Interactua con el usuario y con el modelo 
+
+Vista : Muestra los datos del modelo para el usuario
+
+--------------------------------------
+npm : Gestor de paquetes (esta vinculado a un repo online)
+
+1. npm install express -g
+2. npm install express-generator -g
+Se instalan una sola vez
+
+3. Ruta de proyecto
+    express ejemplo1 --hbs (handlebars)
+
