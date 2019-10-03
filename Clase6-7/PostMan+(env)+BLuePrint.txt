@@ -7,7 +7,10 @@
 npm i dotenv
 
 //Para la DOCUMENTACION podemos usar el BLUEPRINT  un html que se crea a apartir de un archivo (.apib)
-documentation.apib
-//Para agregarlo
+//Primero instalar las dependencias
 npm i api-blueprint
+//Crear el archivo
+documentation.apib
+//Para generar el html a partir de este archivo
+aglio -i documentation.apib -o documentation.html
 

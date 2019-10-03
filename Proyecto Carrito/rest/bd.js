@@ -1,11 +1,11 @@
 require('dotenv').config();//es opcional si tu compu funciona si esto quitalo
 
 // https://www.npmjs.com/package/mysql
-const mysql = require('mysql'); // mysql hace referencia al modulo instalado
+const mysql = require('mysql'); 
 
 const pool = mysql.createPool({
     host : process.env.DATABADE_HOST,
-    port : 3306,
+    port : 3307,//MySQl usa 3306
     user : process.env.DATABADE_USER,
     password : process.env.DATABADE_PASSWORD,
     database : process.env.DATABADE_NAME,

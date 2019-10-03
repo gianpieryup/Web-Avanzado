@@ -1,0 +1,16 @@
+TODO SOBRE REQUERY(req)
+Req: request que llegan al server, del cliente
+
+Req.body |llega la informacion que venia de un formulario
+Ej: si se pasa en un formulario <input name="edad">
+Para accedeer a este recurso | Req.body.edad
+
+Req.params |Los parametros que pasan por URL
+Ej: productos/2
+router.put('/:id_p', async (req,res,next)=> {})
+Para accedeer a este recurso | Req.params.id_p
+
+Req.query |Los atributos y valores que se pasan por la URL
+Ej: productos?edad=20&&poder=100 
+Para accedeer a este recurso | Req.query.edad
+			     | Req.query.poder

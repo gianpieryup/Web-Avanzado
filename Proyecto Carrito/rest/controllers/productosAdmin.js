@@ -49,4 +49,19 @@ router.put('/:id_p', async (req,res,next)=> {
 
 });
 
+router.delete('/:id_p', async (req,res,next)=> {
+    try {
+
+        let productoBorrado = await productosModel.deleteProducto(req.params.id_p);
+        //resultado si fue borrado
+        if (productoBorrado) {
+            res.json({status:'borrado correctamente'});
+        }
+    } catch (error) {
+        console.log("Entro al catch del controlador");
+        console.log(error);
+    }
+
+});
+
 module.exports = router;

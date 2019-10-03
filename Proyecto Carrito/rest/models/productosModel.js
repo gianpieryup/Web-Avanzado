@@ -11,7 +11,22 @@ async function putProducto(obj,id){
         console.log(rows);
         return rows;
     }catch(err){
-        console.log("Error en el model");
+        console.log("Error en el model putProducto");
+        console.log(err);
+        throw err;
+        
+    }
+}
+async function deleteProducto(id){
+    try {
+       //aca HABIA  console.log(obj); ME TIRABA ERROR QUE PELOTUDO XD
+        console.log(id);
+        const rows = await query("DELETE FROM  productos  where id_p=?",[id]);
+        //retorna true si el update funciono corrrectamente
+        console.log(rows);
+        return rows;
+    }catch(err){
+        console.log("Error en el model deleteProducto");
         console.log(err);
         throw err;
         
@@ -84,5 +99,6 @@ module.exports = {
     getProducto,
     buscarProductoFiltro,
     insertProducto,
-    putProducto
+    putProducto,
+    deleteProducto
 }
