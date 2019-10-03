@@ -1,0 +1,22 @@
+npm i jsonwebtoken --save
+npm i md5 --save
+npm i uuid --save
+
+
+(--save para que las dependencias se guarden en package)
+(-g son programas)
+
+API_BLUEPRINT
+# |Una caja de controlador
+## | las rutas relativas del controlador y toda la informacion      de esta cajita
+
+### | para poner cada ruta GET | POST
+
+
+
+Le puedo pasar por Header
+los token
+Las autenticaiones se mandan por los header en postman
+
+
+

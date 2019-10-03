@@ -8,6 +8,12 @@ const productosModel = require('../models/productosModel');
 
 // POST // localhost:3000/productosAdmin
 // router.post  | router.get | router.delete
+
+router.get('/', async (req,res,next)=> {
+    res.json({id: req.user_id})
+})
+
+
 router.post('/', async (req,res,next)=> {
     try {
         // <input type="text" name="nombre_p">

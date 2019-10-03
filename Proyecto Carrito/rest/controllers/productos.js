@@ -1,6 +1,3 @@
-// var
-// chrome://inspect/#devices
-
 const express = require('express');
 const router = express.Router(); 
 const productosModel = require('../models/productosModel');
@@ -20,11 +17,13 @@ router.get('/', async (req,res,next)=> {
 
         res.json({productosFiltrados});
     }
+
+    // vista del home con TODOS los productos
     try {
 
         let productos = await  productosModel.getProductos();
         res.json({productos});
-        // vista del home con TODOS los productos
+        
     } catch(error) {
         res.json({status : 'error'});
     }

@@ -5,7 +5,7 @@ const mysql = require('mysql');
 
 const pool = mysql.createPool({
     host : process.env.DATABADE_HOST,
-    port : 3307,//MySQl usa 3306
+    port : process.env.DATABADE_PORT,//MySQl usa 3306, en mi casa cambiar el .env a 3307
     user : process.env.DATABADE_USER,
     password : process.env.DATABADE_PASSWORD,
     database : process.env.DATABADE_NAME,
