@@ -13,6 +13,9 @@ const productosAdmin = require('./controllers/productosAdmin');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 
+/*const dotenv = require('dotenv');
+dotenv.config();*/
+
 var app = express();
 
 // view engine setup
@@ -26,23 +29,30 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//AL principio de todo
-//equivale a function secured(){}
-//Middleware
+//AL principio de todo [Middleware]
+//Esta funcion usa ES6, equivale a escribirlo como: function secured(){}
+
 secured = (req, res,next)=>{
   // Headers: content-type
   // Authorization : token
   // Los token no van por get no por put si no por Autorization
   let token = req.headers.authorization;
   console.log("Token que llega del cliente :",token);
+
+  // JWT amosd12jsdn81nasd89acfAD
+  // replace reemplaza el JWT y solo deja el token para poder operar
+  // const jwt = require('jsonwebtoken');
   
   //Le quito el prefijo JWT
-  token = token.replace('JWT','');
+  token = token.replace('JWT ','');//guarda con el espacio en blanco de JWT
+  console.log("Token sin el prefijo :",token);
+
   //En el POSTMAN  mandar por header con la nomenclatura [JWT nombreToken] 
   const publicKey = fs.appendFileSync('./claves/publica.pem');//utf-8
   let decode = jwt.verify(token,publicKey);
   console.log("jwt decode",decode);
- 
+  console.log(decode.id);
+  
   req.user_id = decode.id;
   next()
 }
@@ -50,6 +60,7 @@ secured = (req, res,next)=>{
 app.use('/', indexRouter);
 app.use('/productos', productos);
 app.use('/usuarios', usuarios);
+//Osea si alguien quiere acceder a la ruta '/productosAdmin' tiene que pasar por el mildware
 app.use('/productosAdmin',secured, productosAdmin);//secured una funcion de permisos definida arriba un [MILDWARE]
 app.use('/auth', auth);
 

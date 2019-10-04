@@ -33,7 +33,6 @@ router.get('/', async (req,res,next)=> {
 router.get('/:id_p', async(req,res,next)=> {
 
     try {
-        // hola : nu
         let id_p = parseInt(req.params.id_p);
         if(Number.isInteger(id_p)) {
             let producto = await productosModel.getProducto(id_p);

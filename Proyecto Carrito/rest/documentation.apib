@@ -1,4 +1,4 @@
-# Group Productos usuarios
+# Group Productos
 
 ## Todos los productos [/productos]
 ### Listado de todos los productos [GET]
@@ -26,7 +26,7 @@
 
 
 ## Get producto [/productos/1]
-### GET Producto [GET]
+### Vista Producto Espesifico [GET]
 + Request 200 (application/json)
     Location : /productos/1
 + Response 200 (application/json)
@@ -39,7 +39,7 @@
     }
 
 # Group ProductosAdmin
-## Delete producto [/productosAdmin/1]
+## Eliminar producto [/productosAdmin/1]
 ### DELETE producto [DELETE]
 
 + Request 200 (application/json)
@@ -86,3 +86,31 @@
         {
             status : 'ok'
         }
+
+
+# Group Usuarios
+## Todos los usuarios [/usuarios]
+### Listado de todos los usuarios [GET]
++ Request 200
+    Location : /usuarios
+
++ Response 200 (application/json)
+
+        [
+            {
+                
+                "status": "ok",
+                "choices": [
+                    {
+                        "id_u": 1,
+                        "mail_u": "dileo.francoj@gmail.com",
+                        "password_u": "7110eda4d09e062aa5e4a390b0a572ac0d2c0220",
+                        "nombre_u" : "Franco",
+                        "apellido_u" : "Di Leo"
+                        "codigo_confirmacion": "abcdefghi",
+                        "cuenta_confirmada": 0
+                    }
+                ]
+            }
+        ]
+

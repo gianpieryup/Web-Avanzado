@@ -37,13 +37,6 @@ async function insertProducto(obj){
         //lo inserta magicamente
         const rows = await query("INSERT INTO productos set ?",obj);
         return rows.insertId;
-        //[obj.nombre_p,
-        //obj.descripcion_p,
-        //obj.stock_p
-        //obj.precio_p
-        //obj.imagen_p
-        //]);
-
     }
     catch(err){
         // bloque en caso que exista algun error 

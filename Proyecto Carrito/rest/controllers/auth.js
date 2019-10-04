@@ -1,20 +1,22 @@
 //Login --> Server(existe)
 //Token <-- ()
 
-//sesiones
-
+// JWT (header, payload, clave)
 const express = require('express');
 const router = express.Router();
 
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+const md5 = require('md5');
 
 const usuariosModel = require('../models/usuarioModel');
 
 router.post('/login', async (req,res,next)=> {
     try {
-        //me trae una lista de todos los usuarios con ese mail y contraseña
-        let usuario_ok = await usuariosModel.getUser(req.body.mail,req.body.password);
+        //me trae una lista de todos los usuarios con ese mail y hasheada(contraseña) que coincida
+        let usuario_ok = await usuariosModel.getUser(req.body.mail,md5(req.body.password));
+
+        //si no hay usuarios con estos cambios trae una lista vacia, por tanto no entra en este "if"
         if (usuario_ok.length > 0 ) {
             //HEADER
             var signoption = {

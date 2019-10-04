@@ -1,0 +1,28 @@
+﻿-------------------------------------------------
+----------------- CLASE 6 -----------------------
+-------  (.ENV) | BLUEPRINT | AGLIO  ------------
+-------------------------------------------------
+//El archivo (.env) nos permite tener nuestras configuraciones generales en un solo archivo
+//Para crearlo
+npm i dotenv --save
+
+//El aglio que no se pa que sirve pero alla va 
+npm i aglio -g
+
+//Para la DOCUMENTACION podemos usar el BLUEPRINT  un html que se crea a apartir de un archivo (.apib)
+//Primero instalar las dependencias
+npm i api-blueprint
+
+
+API_BLUEPRINT
+# |Una caja de controlador
+## | las rutas relativas del controlador y toda la informacion      de esta cajita
+### | para poner cada ruta GET | POST
+una misma ruta relativa puede tener get ,post,put  (°_°)
+
+//Crear el archivo
+documentation.apib
+//Para generar el html a partir de este archivo
+aglio -i documentation.apib -o documentation.html
+//Para actualizar el .html volver a ejecutar(No es necesario borrar el .html)
+aglio -i documentation.apib -o documentation.html

@@ -5,13 +5,13 @@ const query = utils.promisify(mysql.query).bind(mysql);
 
 async function getUser(user,password) {
     try {
-        const rows = await query("SELECT id_u,nombre_u, cuenta_confirmada from usuarios where mail = ? and password= ?",[user,mde5(password)]);
+        const rows = await query("SELECT id_u,nombre_u, cuenta_confirmada from usuarios where mail_u = ? and password_u= ?",[user,password]);
         console.log(rows);
         return rows;
     }
     catch(err){
-        throw error;
-        console.log(err);
+        console.log(err);//no puede ir nada despues del 'throw error'
+        throw error; 
     }
 
 }
@@ -33,7 +33,7 @@ async function insertUsuario(obj){
         const rows = await query("INSERT INTO usuarios set ?",obj);
         console.log(rows);
         
-        return rows.insertId;
+        return rows.insertId;//Este metodo me devuelve el id con el cual se genero
     }
     catch(err){
         console.log("Entro al error del Model");//recordar que este log nos muestra el error a nosotros por consola,

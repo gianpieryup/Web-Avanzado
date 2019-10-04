@@ -1,17 +1,47 @@
+﻿-------------------------------------------------
+----------------- CLASE 7 -----------------------
+---------- (md5) | (uuid) | 	TOKEN  ----------
+-------------------------------------------------
+
+[jsonwebtoken ]
 npm i jsonwebtoken --save
+Para generar el TOKEN
+
+
+[md5]
 npm i md5 --save
+Una función de JavaScript para encriptar, hash con MD5.Ejemplo
+var md5 = require ('md5');
+console.log (md5('mensaje'));
+
+Esto imprimirá lo siguiente
+78e731027d8fd50ed642340b7c9a63b3
+
+
+[uuid]
 npm i uuid --save
+Generación simple y rápida de RFC4122 UUIDS.
+uuid()      // uuid() genera uns tring aleatorio 
 
 
 (--save para que las dependencias se guarden en package)
 (-g son programas)
 
-API_BLUEPRINT
-# |Una caja de controlador
-## | las rutas relativas del controlador y toda la informacion      de esta cajita
 
-### | para poner cada ruta GET | POST
+Lo que hicimos en esta clase fue la autenticacion
+1. creamos la ruta ('/login') que comprueba que estemos registrados en la bd 
+2. Si efectivamente estamos logueados,  se procede a crear un token con el nombre y otras cosas
+3. El resultado de esta vista es un JSON con el token
 
+Tambien hicimos un MIdelware
+1. creamos una funcion en el app.js que me restringe el acceso directo a las rutas
+2. La llamamos 'secured' y la ponemos asi en la ruta, //Osea si alguien quiere acceder a la ruta '/productosAdmin' tiene que pasar por el mildware
+EJemplo
+3. app.use('/productosAdmin',secured, productosAdmin)
+4. como hago para pasar por este mildeware:
+4.1 Si estoy logueado existe en la cabecera un TOKEN que se genero al momento de loguearme,este se borra si se cierra la session
+4.2 LA funcion secured pregunta si esta el token en 'req.headers.authorization'
+4.3 
 
 
 Le puedo pasar por Header

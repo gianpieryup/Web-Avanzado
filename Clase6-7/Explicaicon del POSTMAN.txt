@@ -1,0 +1,11 @@
+Separa el back del Front
+En la parte 'BODY'
+Significa todo lo que le pasemos por el tag <body></body> del .html
+
+Tenemos distintas opciones por defecto | none
+'none' | no se pasa nada por body
+'x-www-form-urlencoded' | nos da un formato de 'KEY' y 'VALUES'para mandar informacion
+'RAW' | para mandar informacion de difernetes tipos 'TEXT', 'JSON' 
+
+Despues de rellenar el body 'AUTOMATICAMENTE' se rellena en el header lo que se va a pasar
+Se puede hacer al revez ,`no se, como se sincronizan solos`

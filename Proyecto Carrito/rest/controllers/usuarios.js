@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const mde = require('md5');
-const usuariosModel = require('../models/usuarioModel');
 const uuid = require('uuid');
+
+// POST localhost:3000/usuarios
+// CONFIRMAR CUENTA (<a href="localhost:3000/usuarios/confirmar/TOKENUNICO" )
+
+const usuariosModel = require('../models/usuarioModel');
+
 router.get('/', async (req,res,next)=> {
 
     try {
@@ -14,14 +19,14 @@ router.get('/', async (req,res,next)=> {
 })
 
 router.post('/', async (req,res,next)=> {
-    // uuid genera uns tring aleatorio
+   
     try {
         let obj = {
             mail_u : req.body.mail_u,
             nombre_u : req.body.nombre_u,
-            password_u : req.body.password_u,
+            password_u : mde(req.body.password_u),//La guardo hasheada recordar que es mde() el recurso instanciado de md5()
             apellido_u : req.body.apellido_u,
-            codigo_confirmacion : uuid()         
+            codigo_confirmacion : uuid()      // uuid() genera uns tring aleatorio    
         }
         let insert_ok = await usuariosModel.insertUsuario(obj);
         console.log(insert_ok);
@@ -31,8 +36,7 @@ router.post('/', async (req,res,next)=> {
     } catch(error) {
         console.log("Error en la ruta usuarios[POST]");
         console.log(error);
-        
-        res.json({status : 'error'});
+        res.status(500).json({status : 'error'})
     }
 })
 
