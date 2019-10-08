@@ -7,7 +7,7 @@ const pool = mysql.createPool({
     host : process.env.DATABADE_HOST,
     port : process.env.DATABADE_PORT,//MySQl usa 3306, en mi casa cambiar el .env a 3307
     user : process.env.DATABADE_USER,
-    password : process.env.DATABADE_PASSWORD,
+    password : process.env.DATABADE_PASSWORD,//root o vacio
     database : process.env.DATABADE_NAME,
     connectionLimit : 10
 });

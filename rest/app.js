@@ -9,6 +9,8 @@ const productos = require('./controllers/productos');
 const usuarios = require('./controllers/usuarios');
 const auth = require('./controllers/auth');
 const productosAdmin = require('./controllers/productosAdmin');
+const registro = require('./controllers/registro');
+const authAdmin = require('./controllers/admin/auth');
 
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
@@ -48,7 +50,8 @@ secured = (req, res,next)=>{
   console.log("Token sin el prefijo :",token);
 
   //En el POSTMAN  mandar por header con la nomenclatura [JWT nombreToken] 
-  const publicKey = fs.appendFileSync('./claves/publica.pem');//utf-8
+  //estamos leyendo no escribiendo
+  const publicKey = fs.readFileSync('./claves/publica.pem');//utf-8
   let decode = jwt.verify(token,publicKey);
   console.log("jwt decode",decode);
   console.log(decode.id);
@@ -56,13 +59,15 @@ secured = (req, res,next)=>{
   req.user_id = decode.id;
   next()
 }
-
-app.use('/', indexRouter);
+app.use('/registro', registro);
 app.use('/productos', productos);
 app.use('/usuarios', usuarios);
-//Osea si alguien quiere acceder a la ruta '/productosAdmin' tiene que pasar por el mildware
-app.use('/productosAdmin',secured, productosAdmin);//secured una funcion de permisos definida arriba un [MILDWARE]
 app.use('/auth', auth);
+//Osea si alguien quiere acceder a la ruta '/productosAdmin' tiene que pasar por el mildware
+app.use('/productosAdmin', secured,productosAdmin);//secured una funcion de permisos definida arriba un [MILDWARE]
+app.use('/admin/login', authAdmin);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
