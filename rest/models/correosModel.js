@@ -16,10 +16,10 @@ try {
       //  host: 'smtp.gmail',//Elegir el host del Correo| ejemplo host:'smtp.gmail.com'
        // port: 587,
        // secure: false, // true for 465, false for other ports
-       service:'gmail', 
+       service:'gmail',  // [VERSION DEL COMPAÑERO| FUNCIONA]
        auth: {
-            user: process.env.MAIL_USER, // generated ethereal user
-            pass:  process.env.MAIL_PASSWORD // generated ethereal password
+            user: process.env.MAIL_USER, 
+            pass:  process.env.MAIL_PASSWORD 
         },
         //Algo de seguridad,nesecario cambiar el true por defecto| si no rechaza y no te llega el correo
         tls :{
@@ -32,7 +32,7 @@ try {
     let info = await transporter.sendMail({
         from: process.env.MAIL_USER, // Mi email
         to: obj.mail_u, // El mail del objeto(usuario) al que le quiero mandar un mail
-        subject: 'Hello ✔', // Subject line
+        subject: '✔ Prueba de Envio ✔', // Subject line
         text: 'Hello world?', // plain text body
         html: obj.html // html body
     });

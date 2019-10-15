@@ -16,6 +16,7 @@ router.post('/', async (req,res,next)=> {
 
         //si no hay usuarios con estos cambios trae una lista vacia, por tanto no entra en este "if"
         if (usuario_ok.length > 0 ) {
+            console.log(usuario_ok)
             if (usuario_ok[0].permisos == 0) {
                 res.json({status:'Usted no es un administrador'});              
             }
@@ -31,7 +32,7 @@ router.post('/', async (req,res,next)=> {
             const token = jwt.sign(payload, privateKey,signoption);
             res.json({usuario,JWT: token});
         }else{
-            res.json({status:'invalid'});
+            res.json({status:'invalid',info:'Usted no esta registrado'});
         }
 
     } catch (error) {

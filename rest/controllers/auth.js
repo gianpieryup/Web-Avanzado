@@ -34,6 +34,7 @@ router.post('/login', async (req,res,next)=> {
         }
 
     } catch (error) {
+        console.log("Usuario o contraseña incorrectos");
         
     }
 

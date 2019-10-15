@@ -1,7 +1,7 @@
 # Group Productos
 
 ## Todos los productos [/productos]
-### Listado de todos los productos [GET]
+### Listado Productos [GET]
 + Request 200
     Location : /productos
 
@@ -26,7 +26,7 @@
 
 
 ## Get producto [/productos/1]
-### Vista Producto Espesifico [GET]
+### Producto Espesifico [GET]
 + Request 200 (application/json)
     Location : /productos/1
 + Response 200 (application/json)
@@ -40,7 +40,7 @@
 
 # Group ProductosAdmin
 ## Eliminar producto [/productosAdmin/1]
-### DELETE producto [DELETE]
+### Borrar producto [DELETE]
 
 + Request 200 (application/json)
     Location : /productosAdmin/1
@@ -52,7 +52,7 @@
 
 
 ## Insert de productos [/productosAdmin]
-### Envio de productos [POST]
+### Cargar Producto [POST]
 + Request 200 (application/json)
     + Body
         {
@@ -70,7 +70,7 @@
             "id_p" : 5
         }
 ## Put Producto [/productosAdmin]
-### Put de producto [PUT]
+### Actualizar Producto [PUT]
 + Request 200 (application/json)
     Location : /productosAdmin/1
     + Body
@@ -90,7 +90,7 @@
 
 # Group Usuarios
 ## Todos los usuarios [/usuarios]
-### Listado de todos los usuarios [GET]
+### Listado Usuarios [GET]
 + Request 200
     Location : /usuarios
 
@@ -114,3 +114,68 @@
             }
         ]
 
+# Group Registro
+## Formulario de Registro [/registro]
+###  Resgistrarte[POST]
++ Request 200 
+    + Body
+        {
+            mail_u: "dileo.francoj@gmail.com",
+            password_u: "1234",
+            nombre_u : "Franco",
+            apellido_u : "Di Leo",
+        }
+    
++ Response 200 (application/json)
+   + Body
+        {
+            status: "ok",
+            id : "true",
+            message: "Confirmar la cuenta para iniciar sesion"
+        }
+
+## Confirmar Cuenta [/registro]
+###  Confirmar Cuenta [GET]
++ Request 200 (application/json)
+    Location : /registro/ffb38e65-7e86-4447-989d-61a0ee2d612f
+
+    
++ Response 200 (application/json)
+   + Body
+        {
+            estado:"cuenta confirmada"
+        }
+
+
+# Group Login
+## Login Usuario [/auth]
+###  Login Usuario[POST]
++ Request 200 (application/json)
+    + Body
+        {
+            mail: "dileo.francoj@gmail.com",
+            password: "1234",
+        }
+    
++ Response 200 (application/json)
+   + Body
+        {
+            nombre: "dileo",
+            JWT: "token 025160231523.5613.69653"
+        }
+
+## Login Administrador [/admin/login]
+###  Login Administrador [POST]
++ Request 200 (application/json)
+    + Body
+        {
+            mail: "dileo.francoj@gmail.com",
+            password: "1234",
+        }
+    
++ Response 200 (application/json)
+   + Body
+        {
+            nombre: "dileo",
+            JWT: "token 025160231523.5613.69653"
+        }

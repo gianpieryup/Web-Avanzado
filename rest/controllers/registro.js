@@ -21,13 +21,15 @@ router.post('/', async (req,res,next)=> {
         let objMailObject = {
             mail_u:obj.mail_u,
             subject:'Confirmar cuenta',
-            html:"Para registrar ingresar👻👻👻👻👻 a localhost:3000/registro/" + obj.codigo_confirmacion
+            html:`<p>Para terminar ingresa al siguiente enlace:</p>
+            <p>localhost:3000/registro/${obj.codigo_confirmacion}</p>`
+           // html:`<a href="www.google.com"> </a>`
 
         }
 
         let insert_ok = await registroModel.insertUsuario(obj);
         console.log(insert_ok);
-        if (insert_ok != undefined) {
+        if (insert_ok != undefined) {//se inserto correctamente en la tabla
             //enviar CORREO
             let email_sent = await correosModel.sendEmail(objMailObject)
             if(email_sent != undefined){
