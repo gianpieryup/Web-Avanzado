@@ -1,0 +1,15 @@
+El utf de dileo es
+utf8-spanish
+El el POSTMAN si uso |Param|
+se cambia la URL asi se ve
+
+Las convenciones
+Bearer vmvodvmdo
+JWT sknasfnsfk
+
+Entra a mercadoPago
+el link
+1. Credenciales, tenes que tener una cuenta
+
+
+El (??) hace referencia al nombre de la tabla
