@@ -20,7 +20,7 @@ API_BLUEPRINT
 ### | para poner cada ruta GET | POST
 una misma ruta relativa puede tener get ,post,put  (°_°)
 
-//Crear el archivo
+//Crear el archivo| [A MANO]
 documentation.apib
 //Para generar el html a partir de este archivo
 aglio -i documentation.apib -o documentation.html
