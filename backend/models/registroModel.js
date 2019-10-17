@@ -7,9 +7,9 @@ async function registrar(obj){
         if(rows.insertId !=undefined) {
             let id_correo = await correosModel.sendGenericEmail(obj);
             if(id_correo) {
-                return true;
+                return true;//si se envio el correo Correctamente
             } else {
-                return false; 
+                return false; //si hubo error
 
             }
         } 

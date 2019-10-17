@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const pool = require('../bd.js');
 
+//Con el (id) saco informacion del admin (dueño del e-commerce)
 async function getAdminEmail(id) {
     try {
         let query = "select id_cliente , mail_cliente, password_mail_cliente, nombre_cliente from clientes where estado_cliente = 1 where id_cliente = ?";
@@ -23,8 +24,8 @@ async function sendGenericEmail(obj) {
                 user: get_email_config[0].mail_cliente, // generated ethereal user
                 pass: get_email_config[0].password_mail_cliente // generated ethereal password
             },
-            tls : {
-                rejectUnauthorized : false
+            tls : {//Por default esta en true,nesecario cambiarlo a false | si no, no te llega el correo
+                rejectUnauthorized : false //certificado de seguridad
             }
         });
         console.log(transporter)

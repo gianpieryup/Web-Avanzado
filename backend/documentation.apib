@@ -1,0 +1,37 @@
+# Group Registro
+## Formulario de Registro [/registro/idCliente]
+###  Resgistrarte[POST]
++ Request 200 
+    Location : /registro/1
+    + Body
+        {        
+            nombre_usuario : "Franco",
+            apellido_usuario : "Di Leo",
+            mail_u: "dileo.francoj@gmail.com",
+            telefono_usuario: "1122334455",
+            password_usuario: "1234"
+        }
+    
++ Response 200 (application/json)
+   + Body
+        {
+            status: "ok",
+            message: "Se envio un correo a tu cuenta de mail"
+        }
+
+# Group Login
+## Formulario de Login [/auth/login]
+###  Resgistrarte[POST]
++ Request 200 
+    Location : /auth/login
+    + Body
+        {        
+            user : "dileo.francoj@gmail.com",
+            password: "1234"
+        }
+    
++ Response 200 (application/json)
+   + Body
+        {
+            status: "ok",
+        }
