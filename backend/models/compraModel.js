@@ -2,29 +2,29 @@ const pool = require('./../bd.js');
 const uuid = require('uuid');
 const mp = require('../mercadoPago')
 
-async function comprar(id) {
+async function comprar(idUsuario) {
     try {
         let uuid_t = uuid();
     let query = "select sum(precio_producto) as total from carrito join productos on (id_producto = id_producto_carrito) where id_compra_carrito is null and id_usuario_carrito = ?";
 
-    const row = await pool.query(query,id);
+    const row = await pool.query(query,idUsuario);
     console.log(row)
     let monto = row[0].total;
     console.log("El monto es: "+monto);
-    
+
+    let queryInsert = "insert into compra set ?"
     let obj = {
-            id_usuario_compra: id,
+            id_usuario_compra: idUsuario,
             monto_compra: monto,
             token_compra: uuid_t
-            }
-    let queryInsert = "insert into compra set ?"
+            }   
     const rowsInsert = await pool.query(queryInsert,obj);
     
     let insertId = rowsInsert.insertId
-    console.log(insertId);//la pk de la fila insertada
+    console.log(rowsInsert.insertId);//la pk de la fila insertada
 
     let queyUpdate = "update carrito set id_compra_carrito = ? where id_usuario_carrito = ? and id_compra_carrito is null";
-    const rowsUpdate = await pool.query(queyUpdate,[insertId,id]);
+    const rowsUpdate = await pool.query(queyUpdate,[insertId,idUsuario]);
     console.log(rowsUpdate);
     
     //mercado PAgo
@@ -40,7 +40,7 @@ async function comprar(id) {
             }
         ],
         payer :{
-            email : 'email@gmail.com'//sacrlo con un select del cliente
+            email : 'lizalaaniquiladora@gmail.com'//sacrlo con un select del usuario a quien le llegara
         },
         notification_url : process.env.URL + "compra/"+ uuid_t
     }
@@ -48,6 +48,8 @@ async function comprar(id) {
 
     let obj_mercadopago = await mp.comprar(preference);
     console.log(obj_mercadopago)
+    console.log(preference.notification_url);
+    
     return obj_mercadopago.body.sandbo_init_point;
     } catch (error) {
         throw error;

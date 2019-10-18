@@ -1,15 +1,15 @@
 # Group Registro
 ## Formulario de Registro [/registro/idCliente]
-###  Resgistrarte[POST]
-+ Request 200 
+###  Registrarte[POST]
++ Request 200 (application/json)
     Location : /registro/1
     + Body
         {        
-            nombre_usuario : "Franco",
-            apellido_usuario : "Di Leo",
-            mail_u: "dileo.francoj@gmail.com",
-            telefono_usuario: "1122334455",
-            password_usuario: "1234"
+            "nombre_usuario" : "Franco",
+            "apellido_usuario" : "Di Leo",
+            "mail_usuario" : "dileo.francoj@gmail.com",
+            "telefono_usuario" : "1122334455",
+            "password_usuario" : "1234"
         }
     
 + Response 200 (application/json)
@@ -20,18 +20,92 @@
         }
 
 # Group Login
-## Formulario de Login [/auth/login]
-###  Resgistrarte[POST]
-+ Request 200 
+## Formulario Login Usuario [/auth/login]
+###  Login Usuario [POST]
++ Request 200 (application/json)
     Location : /auth/login
     + Body
         {        
-            user : "dileo.francoj@gmail.com",
-            password: "1234"
+            "user" : "dileo.francoj@gmail.com",
+            "password" : "1234"
         }
     
++ Response 200 
+    + Body    
+        {
+            usuario:  {
+                "id": 1
+            },
+            JWT: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+        }
+
+# Group Carrito
+## Vista Carrito [/carrito]
+### Ver Carrito[GET]     
++ Request 200 
+    Location : /carrito
+    + Headers 
+    {
+        Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+    }
+    
+  
 + Response 200 (application/json)
    + Body
-        {
-            status: "ok",
+    {
+        "status": "ok",
+        "data": [
+            {
+                "id_carrito": 4,
+                "id_usuario_carrito": 1,
+                "id_compra_carrito": null,
+                "id_producto_carrito": 16,
+                "fecha_carrito": "2019-10-14T20:08:17.000Z",
+                "id_producto": 16,
+                "id_cliente_producto": 1,
+                "nombre_producto": "CHAIN DR",
+                "descripcion_producto": "Cadena para sectores exclusivos",
+                "foto_producto": "fotochain.png",
+                "visibilidad_producto": 1,
+                "precio_producto": 4201,
+                "stock_producto": 10
+            }]
+    }    
+
+## Cargar Producto al Carrito [/carrito]
+###  Insertar Producto[POST]     
++ Request 200 
+    Location : /carrito
+    + Headers 
+        {   
+            Content-Type: application/json
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
         }
+    + Body
+        {        
+            "id_producto" : 16,
+        }
++ Response 200 (application/json)
+   + Body
+    {
+        "status": "ok",
+        "data": 6
+    }
+    
+
+## Cerrar Carrito [/compra]
+###  Cerrar Carrito[POST]     
++ Request 200 
+    Location : /compra
+    + Headers 
+        {   
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+        }
++ Response 200 (application/json)
+    {
+        "status": "ok",
+        "url" : "LA URL QUE ME REDIRIGIRA A MERCADOPAGO??"
+    }
+    
+
+    

@@ -4,9 +4,12 @@ const carritoModel = require('../models/carritoModel');
 
 router.get('/', async(req,res,next)=> {
     try {
-        if(req.id && req.role) {
-            let carrito = await carritoModel.getCarrito(req.params.id_cliente,req.id);
-            console.log(carrito);
+        console.log("El id_usuario del usuario logueado: ",req.id);
+        console.log("El rol: ",req.role);
+        
+        if(req.id && req.role) {//Esta informacion | La saca del JWToken]]
+            let carrito = await carritoModel.getCarrito(req.id);//como el id_usuario es la una PK de la tabla USUARIOS y no hay nada con id_cliente solo me basta con un parametro
+           // console.log(carrito);
             res.json({status : 'ok', data : carrito});
 
         }

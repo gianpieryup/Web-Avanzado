@@ -1,6 +1,6 @@
 const pool = require('../bd');
 
-async function getCarrito(idCliente,idUsuario) {
+async function getCarrito(idUsuario) {
     try{
 
         let query ="SELECT * from ?? join ?? on id_producto =  id_producto_carrito where id_usuario_carrito = ? and id_compra_carrito IS NULL";

@@ -2,14 +2,21 @@ const express = require('express');
 const router = express.Router();
 const compraModel = require('./../models/compraModel');
 
+//Cerrar CArrito para el usuario logueado (JWT)
 router.post('/',async(req,res,next)=>{
-//compra producto
-//req.id |id del usuario(token)Lo saca magicamente del token
-console.log("!naiosdauisda");
-console.log(req.id);
- let compra_ok = await compraModel.comprar(req.id);
-//retorne la url de mercadoPago
- res.json({status:"ok",compra_ok:compra_ok})
+    try {
+        if(req.id && req.role) {
+
+            let compra_ok = await compraModel.comprar(req.id);//req.id |(este :id) del usuario,Lo saca magicamente del token
+            // compra_ok : url de mercadoPago
+            res.json({status : 'ok', url : compra_ok});
+        } else {
+            res.status(401).json({status : 'unauthorized'});
+        }
+    } catch(error) {
+        console.log(error);
+        res.status(500).json({status : 'error'})
+    }
 })
 
 
