@@ -1,0 +1,38 @@
+
+
+<div class="container">
+  <h1>{{title}}</h1>
+
+  <div *ngIf ="cantidadPersonas > 0 else noHayPersonas">
+    <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Edad</th>
+            </tr>
+      </thead>
+    
+      <tr *ngFor="let persona of curso">
+        <!--defino una variable [persona]  del array cursp-->
+        <td>{{persona.id}}</td>
+        <td>{{persona.nombre}}</td>
+  
+        <!--el else ejecuta la etiqueta asultoMayor(Mirar abajo)-->
+        <td *ngIf="persona.edad < 100 else adultoMayor">{{persona.edad}}</td>
+        <!-- <td *ngIf="persona.edad >= 100"> <b>Adulto mayor</b> </td> -->   
+      </tr> 
+  
+    </table>
+  </div>
+</div>
+
+
+<!--TEmplates-->
+<ng-template #adultoMayor>
+    <td><b>Adulto mayor</b></td>
+</ng-template>
+  
+<ng-template #noHayPersonas>
+     <h4>No hay personas</h4>   
+</ng-template>
