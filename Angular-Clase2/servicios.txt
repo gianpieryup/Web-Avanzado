@@ -1,0 +1,22 @@
+Crear servicios(s)
+ng g s  services/base
+
+Crear componentes(c)
+ng g c comonent/producto
+
+Vamos a conectar el front del back a traves de (servicios)
+[routing] "rutas en español"
+app-routing.module.ts
+	/home --> componentHome
+	/productos --> componentProductos
+	/producto/1 --> componentProducto
+	
+** si la ruta no coincide con las definidas
+dale yes a la parte de ruting model
+
+LA CARPETA ENVIRONMENTS(SERIA COMO EL .ENV)
+
+En el backENd si quiero juntarlo con Angular
+EN el app.js
+const cors = require('cors');
+app.use(cors())

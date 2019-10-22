@@ -1,0 +1,17 @@
+<div class="container">
+        <h3>home works!</h3>
+
+<div class="row">
+    <div class="col-4" *ngFor="let p of productos" >
+        <div class="card" style="width: 18rem;">
+                <img src="https://i1.wp.com/www.sopitas.com/wp-content/uploads/2017/05/pepe-rana-860x581.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{p.nombre_producto}}</h5>
+                  <p class="card-text">{{p.descripcion_producto}}</p>
+                  <a  class="btn btn-primary" (click) = "navigate(p.id_producto)">Ver mas</a>
+                </div>
+        </div>
+    </div>   
+</div>
+       
+</div>
