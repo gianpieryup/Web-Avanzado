@@ -1,7 +1,6 @@
-
-
 <div class="container">
   <h1>{{title}}</h1>
+  <app-heroes></app-heroes>
 
   <div *ngIf ="cantidadPersonas > 0 else noHayPersonas">
     <table class="table table-bordered">
@@ -13,8 +12,8 @@
             </tr>
       </thead>
     
-      <tr *ngFor="let persona of curso">
-        <!--defino una variable [persona]  del array cursp-->
+      <tr *ngFor="let persona of curso"><!--el array[curso] salio del (.ts) que es propiedad de la clase-->
+        <!--defino una variable [persona]  del array curso -->
         <td>{{persona.id}}</td>
         <td>{{persona.nombre}}</td>
   

@@ -43,3 +43,20 @@ por que? para que cualquier componente pueda acceder a esas librerias
 Generar componentes |que se generan?(.html,.css,spec.ts)
 ng generate component components/personas
 O en su version corta: ng g c components/nombreDelComponete
+//Lo hace dentro de la carpeta componente dentro de [app]
+
+Como esta compuesto un componente? |creemos uno llamado heroes
+heroes.component.css
+heroes.component.html
+heroes.component.spect.ts
+heroes.component.ts --> @Component({
+			Informacion del componente
+			})
+
+//Importar clases: para usar la estructura en tus atributos
+
+-------------------------------------------
+-----------|   MODIFICADORES  |------------
+-------------------------------------------
+Para estilizar el contenido contamos con "modificadores" que nos proporciona Angular
+
