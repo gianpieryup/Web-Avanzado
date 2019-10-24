@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductoComponent implements OnInit {
   id_producto : any;
-  producto: any []=[];
+  producto: any ;
   constructor(private productosService :ProductosService, private activateRouter :ActivatedRoute ,private router :Router) { }
 
   //Router: redirigir a  una ruta   --------------------|
@@ -21,7 +21,10 @@ export class ProductoComponent implements OnInit {
     this.id_producto = this.activateRouter.snapshot.params.id;
     console.log(this.id_producto);
     let respuesta_server = await this.productosService.getProducto(this.id_producto);
+    this.producto = respuesta_server.data[0];
     console.log(respuesta_server);
+  //  console.log(respuesta_server.data[0].nombre_producto);
+    
     
   }
 

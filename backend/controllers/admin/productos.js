@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const productosModel = require('../../models/productosModel');
-const pool = require('../../bd.js');
+//const pool = require('../../bd.js');
 router.get('/:id_cliente/:id_producto', async(req,res,next) => {
     try {
         if(req.role == "cliente" && req.params.id_cliente == req.id_cliente) {

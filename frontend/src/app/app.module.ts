@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +19,9 @@ import { ProductoComponent } from './components/producto/producto.component';
     HomeComponent,
     ProductosComponent,
     ProductoComponent,
+    AdminComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

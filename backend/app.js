@@ -21,6 +21,7 @@ const authAdminRouter = require('./controllers/admin/auth');
 const mainAdminRouter = require('./controllers/admin/main');
 const contenidoAdminRouter = require('./controllers/admin/contenido');
 const productosAdminRouter = require('./controllers/admin/productos');
+const usuariosAdminRouter = require('./controllers/admin/usuarios');
 var app = express();
 app.use(cors())
 // view engine setup
@@ -79,6 +80,7 @@ app.use('/admin/auth', authAdminRouter);
 app.use('/admin/main', securedAdmin,mainAdminRouter);
 app.use('/admin/contenido', securedAdmin, contenidoAdminRouter);
 app.use('/admin/productos', securedAdmin, productosAdminRouter);
+app.use('/admin/usuarios', securedAdmin, usuariosAdminRouter);
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

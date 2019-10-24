@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   productos : any [] = [];
   constructor(private productosServices : ProductosService, private rooter : Router) { }
 
-  async ngOnInit() {
+  async ngOnInit() {//Lo que carga por defecto
     // Acá cargamos los productos como peticion a nuestro backend
     // return this.http.get()
     let respuesta_server : any= await this.productosServices.getProductos(); // get base service
@@ -22,10 +22,6 @@ export class HomeComponent implements OnInit {
       this.productos = respuesta_server.data;
       console.log(this.productos);
     }
-    // *ngFor="let p of productos"
-
-
-
   }
 
   navigate(id : number){

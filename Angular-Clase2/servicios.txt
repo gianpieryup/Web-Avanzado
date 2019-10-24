@@ -1,11 +1,13 @@
 Crear servicios(s)
 ng g s  services/base
+				
+Crear componentes(c)		|Se crea un componente con el nombre producto(.html/.css/.ts)
+ng g c components/producto	|Se actualiza el archivo `app.module.ts`
+--------------------------------|Si quiero borrar?/Borro las carpetas de los archivos Y BORRO sus referencias en la carpeta `app.module.ts`
 
-Crear componentes(c)
-ng g c comonent/producto
 
 Vamos a conectar el front del back a traves de (servicios)
-[routing] "rutas en español"
+[routing] "rutas en espaÃ±ol"
 app-routing.module.ts
 	/home --> componentHome
 	/productos --> componentProductos
