@@ -4,7 +4,7 @@ const pool = require('../bd.js');
 //Con el (id) saco informacion del admin (dueño del e-commerce)
 async function getAdminEmail(id) {
     try {
-        let query = "select id_cliente , mail_cliente, password_mail_cliente, nombre_cliente from clientes where estado_cliente = 1 where id_cliente = ?";
+        let query = "select id_cliente , mail_cliente, password_mail_cliente, nombre_cliente from clientes where estado_cliente = 1 and id_cliente = ?";
         const rows = await pool.query(query,[id]);
         return rows;
     } catch(error) {
@@ -21,8 +21,8 @@ async function sendGenericEmail(obj) {
             port: 587,
             secure: false, // true for 465, false for other ports
             auth: {
-                user: get_email_config[0].mail_cliente, // generated ethereal user
-                pass: get_email_config[0].password_mail_cliente // generated ethereal password
+                user: "gyupanquisalvatierra@gmail.com" , //get_email_config[0].mail_cliente, // generated ethereal user
+                pass: "belafu1998"//get_email_config[0].password_mail_cliente // generated ethereal password
             },
             tls : {//Por default esta en true,nesecario cambiarlo a false | si no, no te llega el correo
                 rejectUnauthorized : false //certificado de seguridad

@@ -1,0 +1,24 @@
+Formularios
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
+
+
+form --> FormGroup --> FormControl--> Validators
+			(los inputs)| (que cumpla ciertos requisistos: formato)
+
+Eventos de Angular
+ngSubmit
+click
+
+
+FormControl('',Validators.required)
+----------[Valor inicial]----[validaciones]
+esta funcion tiene dos parametros si quiero muchas validacines las pasamos en un array [val1.val2]
+
+--como accedo a cada validacion del input
+form.get('nombre').touched
+form.get('nombre').status
+
+
+ALt +z |corta lineado

@@ -11,7 +11,10 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { LoginComponent } from './components/login/login.component';
 
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,15 @@ import { FooterComponent } from './components/footer/footer.component';
     AdminComponent,
     NavbarComponent,
     FooterComponent,
+    RegistroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

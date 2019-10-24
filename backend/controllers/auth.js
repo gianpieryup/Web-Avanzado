@@ -6,10 +6,11 @@ const fs = require('fs');
 
 const authModel = require('../models/authModel');
 
-router.post('/login',async(req,res,next)=> {
+router.post('/login/:id',async(req,res,next)=> {
     console.log("Entra a ligin");
     try {
-        let login_usr = await authModel.loginUser(req.body.user, md5(req.body.password));
+		let id_cliente = req.params.id;
+        let login_usr = await authModel.loginUser(id_cliente,req.body.mail, md5(req.body.password));
         if(login_usr.length > 0 ) {//Paso el Login
             const privateKey = fs.readFileSync('./claves/privada.pem','utf-8');
             

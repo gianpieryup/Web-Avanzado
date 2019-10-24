@@ -20,11 +20,10 @@ export class ProductoComponent implements OnInit {
                                                     // |    
     this.id_producto = this.activateRouter.snapshot.params.id;
     console.log(this.id_producto);
-    let respuesta_server = await this.productosService.getProducto(this.id_producto);
+    let respuesta_server : any= await this.productosService.getProducto(this.id_producto);
     this.producto = respuesta_server.data[0];
     console.log(respuesta_server);
   //  console.log(respuesta_server.data[0].nombre_producto);
-    
     
   }
 

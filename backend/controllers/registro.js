@@ -7,6 +7,7 @@ const md5 = require('md5');
 
 router.post('/:id_cliente', async(req,res,next) => {
     try {
+		console.log(req.params.id_cliente);
         let obj = {
             id_cliente_usuario : req.params.id_cliente,
             nombre_usuario : req.body.nombre,
