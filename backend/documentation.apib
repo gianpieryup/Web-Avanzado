@@ -107,5 +107,51 @@
         "url" : "LA URL QUE ME REDIRIGIRA A MERCADOPAGO??"
     }
     
+# Group Productos
+## Vista Productos [/productos/idCliente]
+### Lista Productos[GET]     
++ Request 200 
+    + Headers
+        {
+            Location : /productos/1   
+         }
++ Response 200 (application/json)
+   + Body
+    {
+        "status": "ok",
+        "data": [
+            {
+                "id_producto": 16,
+                "id_cliente_producto": 1,
+                "nombre_producto": "CHAIN DR",
+                "descripcion_producto": "Cadena para sectores exclusivos",
+                "foto_producto": "fotochain.png",
+                "visibilidad_producto": 1,
+                "precio_producto": 4201,
+                "stock_producto": 10
+            }]
+    }    
 
-    
+## Producto Especifico [/productos/idCliente/idProducto]
+### Producto Especifico [GET]     
++ Request 200 
+    + Headers
+        {
+            Location : /productos/1/16   
+         }
++ Response 200 (application/json)
+   + Body
+    {
+        "status": "ok",
+        "data":{      
+                "id_producto": 16,
+                "id_cliente_producto": 1,
+                "nombre_producto": "CHAIN DR",
+                "descripcion_producto": "Cadena para sectores exclusivos",
+                "foto_producto": "fotochain.png",
+                "visibilidad_producto": 1,
+                "precio_producto": 4201,
+                "stock_producto": 10
+            }
+    }    
+   
