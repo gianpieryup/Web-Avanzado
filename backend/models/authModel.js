@@ -4,7 +4,7 @@ async function loginUser(id_cliente,username,password) {
     try{
         console.log(id_cliente,username,password);
         
-        let query = "select id_usuario, permisos_usuario from ?? where mail_usuario = ? and password_usuario = ? and id_cliente_usuario = ?" ;
+        let query = "select id_usuario,nombre_usuario, permisos_usuario from ?? where mail_usuario = ? and password_usuario = ? and id_cliente_usuario = ?" ;
         const rows = await pool.query(query,[process.env.TABLA_USUARIOS,username,password,id_cliente]);
         console.log(rows);
         
