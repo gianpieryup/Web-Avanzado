@@ -15,6 +15,7 @@ const registroRouter = require('./controllers/registro');
 const contenidoRouter = require('./controllers/contenido');
 const carritoRouter = require('./controllers/carrito');
 const compraRouter = require('./controllers/compra');
+const usuariosRouter = require('./controllers/usuarios');
 
 // Admin controller
 const authAdminRouter = require('./controllers/admin/auth');
@@ -74,6 +75,7 @@ app.use('/registro', registroRouter);
 app.use('/contenido', contenidoRouter); // ruta para ver posteos que se hagan dentro de la plataforma
 app.use('/carrito', secured, carritoRouter); // ruta protegida para que un usuario pueda ver todos los productos que tiene reservados
 app.use('/compra',secured,compraRouter);//no olvidar el secured ,para confirmar el Autorizetion
+app.use('/usuarios', secured,usuariosRouter);
 // ADMIN 
 
 app.use('/admin/auth', authAdminRouter);

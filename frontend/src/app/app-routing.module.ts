@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductoComponent } from './components/producto/producto.component';
 import { RegistroComponent } from 'src/app/components/registro/registro.component';
 import { LoginComponent } from 'src/app/components/login/login.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
   {path : 'producto/:id', component : ProductoComponent},
   {path : 'registro' , component: RegistroComponent},
   {path : 'login', component: LoginComponent},
+  {path : 'perfil', component:PerfilComponent },
+  {path : 'carrito', component:CarritoComponent },
   {path : '**', redirectTo : 'home'}
 ];
 

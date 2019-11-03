@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class LoginComponent implements OnInit {
   form : FormGroup;
-  constructor(private usuariosService : UsuariosService) { }//dentro del constrcuctor inicializalo
+  constructor(private usuariosService : UsuariosService, private rooter : Router) { }//dentro del constrcuctor inicializalo
 
   ngOnInit() {
     this.form =new FormGroup({
@@ -20,12 +21,21 @@ export class LoginComponent implements OnInit {
   async login(){
     let user_ok : any = await this.usuariosService.loginUsuario(this.form.value)
     if(user_ok.status != "invalid"){//=="ok"
-      console.log("El JWT: ",user_ok.JWT);
+        console.log(user_ok);
+        console.log(user_ok.usuario.nombre);
+        localStorage.setItem('usuario', user_ok.JWT);
+        localStorage.setItem('nombre', user_ok.usuario.nombre)
+        // console.log(localStorage.getItem('usuario'))
+        // localStorage (los datos permancen hasta que se borre la sesion (forzado))
+        // sessionStorage (los datos permancen hasta que se cierra la pestaña)
+        
+        this.rooter.navigate(['home']);
       
     }else{
       console.log("Usuario incorrecto");
       
     }
+    this.form.reset();
   }
 
 }

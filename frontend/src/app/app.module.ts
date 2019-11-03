@@ -15,6 +15,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     RegistroComponent,
     LoginComponent,
+    PerfilComponent,
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,
