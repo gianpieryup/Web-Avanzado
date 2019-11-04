@@ -10,17 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
   form : FormGroup;
-  password : FormGroup
+  password : FormGroup;
   show_form : boolean;//un condicional para que me muestre la informacion del ususario
   habilitar_password : boolean = false;
+  historial : any [] = [];
 
   showPassword() {
     this.habilitar_password = true;
     this.password = new FormGroup({
     'password_usuario' : new FormControl('', [Validators.required])
     })
-
   }
+  
   async cambiarPassword() {
     let actualizar_pwd = await this.usuariosService.putPassword(this.password.value);
     console.log(actualizar_pwd);
@@ -29,7 +30,7 @@ export class PerfilComponent implements OnInit {
   constructor(private usuariosService : UsuariosService, private rooter : Router) { }
 
   async ngOnInit() {
-    let data : any = await this.usuariosService.getUsuario();
+    let data : any = await this.usuariosService.getUsuario() ;
     console.log(data);
     if(data.status == 'ok') {
       this.show_form = true;
@@ -41,6 +42,13 @@ export class PerfilComponent implements OnInit {
       'apellido_usuario' : new FormControl(data.data[0].apellido_usuario, [Validators.required]),
       'telefono_usuario' : new FormControl(data.data[0].telefono_usuario, [Validators.required])
     })
+
+    //Historial de compras
+    // let respuesta_server : any = await this.usuariosService.getHistorial() ; // get base service
+    // if(respuesta_server.status === 'ok') {
+    //   this.historial = respuesta_server.data;
+    //   console.log(this.historial);
+    // }
   }
 
   async putUsuario(){

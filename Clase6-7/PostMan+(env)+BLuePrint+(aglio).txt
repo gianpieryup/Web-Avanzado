@@ -20,6 +20,12 @@ API_BLUEPRINT
 ### | para poner cada ruta GET | POST
 una misma ruta relativa puede tener get ,post,put  (°_°)
 
+
+Escritura
+# Group Usuario
+## Historial de Compra del Usuario [/usuarios/historial] --No olvidar [/..] empieza con /
+### Historial de Compra[GET]   
+
 //Crear el archivo| [A MANO]
 documentation.apib
 //Para generar el html a partir de este archivo

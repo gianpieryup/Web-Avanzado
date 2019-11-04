@@ -42,7 +42,7 @@ export class BaseService {
   async get() {
     // este metodo devuelve la respuesta que envía el servidor en formato JSON
     try {
-      const options : any = this.getHttpOptions(); // {headers : }
+      const options : any = this.getHttpOptions(); // {headers : los autorization y demas cabeceras }
       return this.http.get(this.url_server + this.endpoint, options).toPromise();
 
     } catch(error) {

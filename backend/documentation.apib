@@ -1,5 +1,5 @@
 # Group Registro
-## Formulario de Registro [/registro/idCliente]
+## Formulario de Registro [/registro/:idCliente]
 ###  Registrarte[POST]
 + Request 200 (application/json)
     Location : /registro/1
@@ -20,13 +20,13 @@
         }
 
 # Group Login
-## Formulario Login Usuario [/auth/login]
+## Formulario Login Usuario [/auth/login/:idCliente]
 ###  Login Usuario [POST]
 + Request 200 (application/json)
-    Location : /auth/login
+    Location : /auth/login/1
     + Body
         {        
-            "user" : "dileo.francoj@gmail.com",
+            "mail" : "dileo.francoj@gmail.com",
             "password" : "1234"
         }
     
@@ -73,7 +73,7 @@
     }    
 
 ## Cargar Producto al Carrito [/carrito]
-###  Insertar Producto[POST]     
+###  Cargar Producto[POST]     
 + Request 200 
     Location : /carrito
     + Headers 
@@ -108,13 +108,11 @@
     }
     
 # Group Productos
-## Vista Productos [/productos/idCliente]
-### Lista Productos[GET]     
-+ Request 200 
-    + Headers
-        {
-            Location : /productos/1   
-         }
+## Vista Productos [/productos/:idCliente]
+### Lista Productos[GET] 
+Location : /productos/1    
++ Request 200
+    
 + Response 200 (application/json)
    + Body
     {
@@ -132,7 +130,7 @@
             }]
     }    
 
-## Producto Especifico [/productos/idCliente/idProducto]
+## Producto Especifico [/productos/:idCliente/:idProducto]
 ### Producto Especifico [GET]     
 + Request 200 
     + Headers
@@ -155,3 +153,73 @@
             }
     }    
    
+# Group Usuario
+## Indormacion del Usuario [/usuarios]
+### Info Usuario[GET]   
++ Request 200 
+    + Headers 
+        {   
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+        }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "ok",
+            "data": [
+                {
+                    "nombre_usuario": "Franco",
+                    "apellido_usuario": "Di Leo",
+                    "telefono_usuario": "1144739222",
+                    "mail_usuario": "dileo.francoj@gmail.com"
+                }
+            ]
+        }
+
+## Historial de Compra del Usuario [/usuarios/historial]
+### Historial de Compra[GET]   
++ Request 200 
+    + Headers 
+        {   
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+        }
++ Response 200 (application/json)
+    + Body
+    {
+        "status": "ok",
+        "data": [
+            {
+                "id_compra": 1,
+                "monto_compra": 12603,
+                "fecha_compra": "0000-00-00 00:00:00"
+            }
+        ]
+    }     
+
+## Actualizar Perfil [/changedatos/:idCliente]
+### Actualizar Perfil [PUT]   
++ Request 200 
+    Location : /changepassword/1
+    + Headers 
+        {   
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+        }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "ok"
+        }    
+
+## Actualizar Contraseña [/changepassword/:idCliente]
+### Actualizar Contraseña [PUT]   
++ Request 200 
+    Location : /changepassword/1
+    + Headers
+        {   
+            
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+        }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "ok"
+        }         

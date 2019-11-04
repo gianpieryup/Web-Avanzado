@@ -58,4 +58,14 @@ async function comprar(idUsuario) {
     
 }
 
-module.exports = {comprar} 
+async function historial(idUsuario) {
+    try {
+        let query = "select id_compra, monto_compra, fecha_compra from compra where id_usuario_compra = ?";
+        const rows = await pool.query(query,idUsuario);
+        return rows;
+
+    } catch (error) {
+        throw error;
+    }
+}
+module.exports = {comprar,historial} 

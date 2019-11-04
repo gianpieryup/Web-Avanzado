@@ -27,7 +27,8 @@ export class UsuariosService extends BaseService {
       this.setEndPoint('usuarios');
       return this.get();
     } catch (error) {
-
+      console.log("Error en la funcion getUsuario() ");
+      throw error;
     }
   }
   async putPassword(obj) {
@@ -39,4 +40,15 @@ export class UsuariosService extends BaseService {
     this.setEndPoint('usuarios/changedatos');//agregar unas rutas al backend
     return this.put(obj);
   }
+
+  async getHistorial() {
+    try {
+      this.setEndPoint('usuarios/historial');//agregar unas rutas al backend
+      return this.get();
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
 }

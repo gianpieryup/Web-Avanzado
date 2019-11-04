@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     if(user_ok.status != "invalid"){//=="ok"
         console.log(user_ok);
         console.log(user_ok.usuario.nombre);
-        localStorage.setItem('usuario', user_ok.JWT);
+        localStorage.setItem('usuario', user_ok.JWT);//Por que el JSON del back me devuelve esto
         localStorage.setItem('nombre', user_ok.usuario.nombre)
         // console.log(localStorage.getItem('usuario'))
         // localStorage (los datos permancen hasta que se borre la sesion (forzado))

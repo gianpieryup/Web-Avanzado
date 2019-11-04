@@ -9,7 +9,15 @@ export class CarritoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    //let respuesta_server : any= await this.productosServices.getProductos(); // get base service
+    // {
+      // {status : 'ok' , data : []}
+    //}
+    // if(respuesta_server.status === 'ok') {
+    //   this.productos = respuesta_server.data;
+    //   console.log(this.productos);
+    // }
   }
 
 }

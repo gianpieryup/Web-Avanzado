@@ -19,6 +19,7 @@ router.get('/', async(req,res,next)=> {
     }
 })
 
+//Cargar Producto
 router.post('/', async(req,res,next)=> {
     console.log("entra");
 
