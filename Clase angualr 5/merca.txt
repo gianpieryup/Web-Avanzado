@@ -1,0 +1,39 @@
+proceso de mercado pago
+npm i axios
+
+hay que comprobar 
+el resultado hay que pararlo con un 200
+
+----------------------------------
+Guardianes
+crear el archivo auth.guard.ts a la altura de  la carpeta app
+----------------------------------
+Puedo configurar que se carga y que no porque por defecto se carga todos los componentes pero 
+CantLoad:
+
+CantActivate: Respalda las rutas que se definen dentro del app-routing.module
+
+
+[app.module]
+declartions--> componentes
+imports--> modulos
+
+
+en las rutas
+{path: 'perfil',Guardian,component}
+
+en el front
+ng g c component/lazy
+se genera 4 archivos
+
+me valla cargando a medido que yo lo pida
+
+generar modulo
+ng g m components/lazy --routing
+
+ahora cada componente tiene 6 archivos, cada componente puede tener su ruteo en lazy
+
+y para que se usa? para no cargar archivos pesados por defecto al inicio
+
+un componentes no puede ser de dos modulos didtintos
+lazy: rutas relativas

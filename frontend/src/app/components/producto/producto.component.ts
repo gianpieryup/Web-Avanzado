@@ -29,7 +29,7 @@ export class ProductoComponent implements OnInit {
     
   }
   async cargarAlCarrito(){
-    console.log("CArgare este producto al carrito");
+    console.log("Cargare este producto al carrito");
     let product = {id_producto: this.id_producto };
     let res : any= await this.carritoService.cargarCarrito(product)
     if (res.status=="ok") {

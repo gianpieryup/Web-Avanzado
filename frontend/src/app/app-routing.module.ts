@@ -7,6 +7,7 @@ import { RegistroComponent } from 'src/app/components/registro/registro.componen
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { AuthGuard } from 'src/app/auth.guard';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path : 'producto/:id', component : ProductoComponent},
   {path : 'registro' , component: RegistroComponent},
   {path : 'login', component: LoginComponent},
-  {path : 'perfil', component:PerfilComponent },
+  {path : 'perfil', canActivate: [AuthGuard] ,component:PerfilComponent },
+  {path : 'lazy', loadChildren : './components/lazy/lazy.module#LazyModule',canActivate: [AuthGuard]},
   {path : 'carrito', component:CarritoComponent },
   {path : '**', redirectTo : 'home'}
 ];

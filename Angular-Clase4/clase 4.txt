@@ -1,0 +1,39 @@
+Login
+Guardar en local seession storage
+guardar el JWT
+-----------------------------------
+localStorage
+- setItem //cambio uno
+- getItem // muestro uno
+- removeItem // borra un elemento especifico
+- clear() //borra todo el localStorage
+
+----------------------
+var variable : any  | el modificador any es un tip de dato(cualquier cosa)
+
+-----------
+Incluir la vista del componente navbar en la vista del componente home
+
+cuando presione desloguearme me debe limpiar el local storage
+
+tocamos el nombre en el select del model que traia el back en el login
+guardamos el nombre en localstorage tambien
+
+ this.router.navigate(['home'])|||| recarga el componente 'home' no el componente de navbar
+---------------
+actualizar datos del ussuario
+tener en app.modules el reacivo y el form
+
+
+
+----------------------------------------
+Temas de angular
+Guardians(pipes)
+Lazy load
+Observables
+--------------------------
+Firebase orientada a documentos (API)
+-------------------------
+Servidor (2)
+
+React (3)

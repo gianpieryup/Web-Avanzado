@@ -1,6 +1,8 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class BaseService {
   url_server =  environment.url_server;
   endpoint = "";
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private router : Router) { }
 
+  // defina el endpoint para hacer la peticion al REST
   setEndPoint(endpoint) {
-    // defina el endpoint para hacer la peticion al REST
     this.endpoint = endpoint;
   }
   getHttpOptions() {//Para mostrar la informacion de las cabeceras (Authorization,content-type)
@@ -38,16 +40,28 @@ export class BaseService {
       console.log(error);
     }
   }
+  processResponseError(){
+    localStorage.clear();
+    this.router.navigate(['/'])
+
+  }
 
 
   async get() {
     // este metodo devuelve la respuesta que envía el servidor en formato JSON
     try {
+      console.log("get")
       const options : any = this.getHttpOptions(); // {headers : los autorization y demas cabeceras }
+   //   console.log(await this.http.get(this.url_server + this.endpoint, options).toPromise())
+      let data = await this.http.get(this.url_server + this.endpoint, options).toPromise()
+      if(data.status === 401) {
+        this.processResponseError()
+      }
       return this.http.get(this.url_server + this.endpoint, options).toPromise();
 
     } catch(error) {
-      throw error;
+      console.log(error);
+      this.processResponseError()
     }
   }
   async post(obj){
