@@ -1,0 +1,2 @@
+Nombre 		Tipo 		Cotejamiento 	Atributos 	Nulo 	Predeterminado 		Comentarios 	Extra
+fecha_carrito 	datetime 					Sí 	current_timestamp()

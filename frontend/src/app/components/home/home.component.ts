@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   productos : any [] = [];
-  constructor(private productosServices : ProductosService, private rooter : Router) { }
+  constructor(private productosServices : ProductosService,private rooter : Router) { }
 
   async ngOnInit() {//Lo que carga por defecto
     // Acá cargamos los productos como peticion a nuestro backend
     // return this.http.get()
-    let respuesta_server : any= await this.productosServices.getProductos(); // get base service
+    let respuesta_server : any= await this.productosServices.getProductos() // get base service
     if(respuesta_server.status === 'ok') {
       this.productos = respuesta_server.data;
       console.log(this.productos);

@@ -44,11 +44,11 @@ export class PerfilComponent implements OnInit {
     })
 
     //Historial de compras
-    // let respuesta_server : any = await this.usuariosService.getHistorial() ; // get base service
-    // if(respuesta_server.status === 'ok') {
-    //   this.historial = respuesta_server.data;
-    //   console.log(this.historial);
-    // }
+    let respuesta_server : any = await this.usuariosService.getHistorial() ; // get base service
+    if(respuesta_server.status === 'ok') {
+      this.historial = respuesta_server.data;
+      console.log(this.historial);
+    }
   }
 
   async putUsuario(){

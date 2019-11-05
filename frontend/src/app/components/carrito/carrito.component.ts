@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from './../../services/carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -6,18 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-
-  constructor() { }
+  carrito : any [] = [];
+  constructor(private carritoService : CarritoService) { }
 
   async ngOnInit() {
-    //let respuesta_server : any= await this.productosServices.getProductos(); // get base service
-    // {
-      // {status : 'ok' , data : []}
-    //}
-    // if(respuesta_server.status === 'ok') {
-    //   this.productos = respuesta_server.data;
-    //   console.log(this.productos);
-    // }
+    let respuesta_server : any= await this.carritoService.getCarrito(); // get base service
+
+    if(respuesta_server.status === 'ok') {
+      this.carrito = respuesta_server.data;
+      console.log(this.carrito);
+    }
   }
 
 }
