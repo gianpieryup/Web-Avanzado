@@ -54,7 +54,7 @@ export class BaseService {
       const options : any = this.getHttpOptions(); // {headers : los autorization y demas cabeceras }
    //   console.log(await this.http.get(this.url_server + this.endpoint, options).toPromise())
       let data = await this.http.get(this.url_server + this.endpoint, options).toPromise()
-      if(data.status === 401) {
+      if(data['status'] === 401) {
         this.processResponseError()
       }
       return this.http.get(this.url_server + this.endpoint, options).toPromise();

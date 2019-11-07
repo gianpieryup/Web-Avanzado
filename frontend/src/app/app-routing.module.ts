@@ -16,9 +16,9 @@ const routes: Routes = [
   {path : 'producto/:id', component : ProductoComponent},
   {path : 'registro' , component: RegistroComponent},
   {path : 'login', component: LoginComponent},
+  {path : 'carrito', component: CarritoComponent },
   {path : 'perfil', canActivate: [AuthGuard] ,component:PerfilComponent },
   {path : 'lazy', loadChildren : './components/lazy/lazy.module#LazyModule',canActivate: [AuthGuard]},
-  {path : 'carrito', component:CarritoComponent },
   {path : '**', redirectTo : 'home'}
 ];
 

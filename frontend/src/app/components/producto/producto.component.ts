@@ -34,7 +34,7 @@ export class ProductoComponent implements OnInit {
     let res : any= await this.carritoService.cargarCarrito(product)
     if (res.status=="ok") {
       console.log(res.data);     
-      this.router.navigate(['carrito']);
+      this.router.navigate(['home']);
     } 
   }
 

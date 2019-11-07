@@ -22,8 +22,8 @@ router.get('/:id_cliente', async(req,res,next)=> {
 })
 
 //Cargar Producto
-router.post('/', async(req,res,next)=> {
-    console.log("entra");
+router.post('/:id_cliente', async(req,res,next)=> {
+    console.log("entra con id_cliente",req.params.id_cliente);//no importa el id_cliente no lo uso
 
     try {
         if(req.id && req.role) {

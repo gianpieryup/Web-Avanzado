@@ -3,7 +3,7 @@ const router = express.Router();
 const compraModel = require('./../models/compraModel');
 
 //Cerrar CArrito para el usuario logueado (JWT)
-router.post('/',async(req,res,next)=>{
+router.post('/:id_cliente',async(req,res,next)=>{
     try {
         if(req.id && req.role) {
 

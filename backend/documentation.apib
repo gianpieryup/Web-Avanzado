@@ -72,10 +72,10 @@
             }]
     }    
 
-## Cargar Producto al Carrito [/carrito]
+## Cargar Producto al Carrito [/carrito/:idCliente]
 ###  Cargar Producto[POST]     
 + Request 200 
-    Location : /carrito
+    Location : /carrito/1
     + Headers 
         {   
             Content-Type: application/json
@@ -93,10 +93,10 @@
     }
     
 
-## Cerrar Carrito [/compra]
+## Cerrar Carrito [/compra/:idCliente]
 ###  Cerrar Carrito[POST]     
 + Request 200 
-    Location : /compra
+    Location : /compra/1
     + Headers 
         {   
             Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
