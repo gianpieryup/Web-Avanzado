@@ -32,10 +32,49 @@ Vista : Muestra los datos del modelo para el usuario
 --------------------------------------
 npm : Gestor de paquetes (esta vinculado a un repo online)
 
-1. npm install express -g
-2. npm install express-generator -g
-Se instalan una sola vez
 
+EXPRESS  es un marco de aplicación web para Node.js
+Se le ha llamado el marco de servidor estándar por defecto para Node.js
+Para instalar EXPRESS 
+
+
+1. npm install express -g
+>El modificador ( -g ) lo instala globlalmente en el equipo y no solo en el proyecto
+Se instala una sola vez
+> version? >> express --version
+Como creo un protecto con express 
+1. creamos una carpeta vacia llamada 'ejemplo'
+2. dentro de esta carpeta ejecutamos el siguiente comando para crear un archivo 
+llamado package.json
+>> npm init >> 
+Nos preguntará desde la propia consola algunas cosas como el nombre y
+la versión del proyecto, etc(Por defecto dale enter a todo hasta que la consola  termine.) 
+Creará automáticamente el archivo package.json con nuestra información básica.
+>El modificador (--save) para instalar dependencias lo agrega en el package.json
+
+Creamos el archivo index.js que hemos indicado en package.json y le añadimos el siguiente código:
+var express = require('express');
+var app = express();
+app.get('/', function (req, res) {
+  res.send('Hola mundo');
+});
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});	
+
+>Lo corremos con>> node index.js 
+Abrimos un navegador cualquiera, ponemos como URL «localhost:3000» y el navegador nos mostrará el mensaje «Hola mundo».
+--------------------------------------------------
+2.Esquema de aplicación con Express.js
+
+Pero tenemos una forma bastante más fácil de crear un esquema completo de aplicación utilizando el generador de aplicaciones de Express.js. Puedes adaptarlo a tus necesidades más adelante, pero como punto de partida nos sirve sin modificar.
+Instalamos express-generator:
+
+npm install express-generator -g
+
+
+Se instala una sola vez/ como se si lo tienes? vuelve a ejecutar es global
+--------------------------------------------------------
 3. Ruta de proyecto
     express ejemplo1 --hbs (handlebars)
 
