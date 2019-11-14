@@ -6,12 +6,13 @@
 //Para crearlo
 npm i dotenv --save
 
-//El aglio que no se pa que sirve pero alla va 
-npm i aglio -g
+//El aglio que no se pa que sirve pero alla va
+//primero fijate si ya lo tienes, como? aglio -v
+npm i aglio -g	//solo si no lo tenias , antes no venia en el paquete
 
 //Para la DOCUMENTACION podemos usar el BLUEPRINT  un html que se crea a apartir de un archivo (.apib)
 //Primero instalar las dependencias
-npm i api-blueprint
+npm i api-blueprint --save
 
 
 API_BLUEPRINT

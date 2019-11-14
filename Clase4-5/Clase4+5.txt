@@ -15,7 +15,7 @@ Se instalan una sola vez
 
 4. Pararse dentro del proyecto:	    cd ejemplo1
 5. Descargar las dependencias: 	  npm install 
-6. Instalar Nodemon:	npm i nodemon -g
+6. Instalar Nodemon:	npm i nodemon -g //solo una ves | YA lo tengo nodemon -v?
 7. Ejecutar el proyecto:	nodemon npm start 
 
 -------------------------------------------------
@@ -27,4 +27,5 @@ Para usar sentencias SQL de mysql
 npm install mysql --save
 
 Para usar promesas de las sentencias sql
-npm install util--save
+npm install util--save		// creo que util ya viene por defecto| no esta en el package json pero debe estar
+//si en el node-modules tienes [util-deprecate] y [utils-merge] no instales esto
