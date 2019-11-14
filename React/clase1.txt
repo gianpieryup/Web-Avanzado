@@ -1,0 +1,36 @@
+Ingrid Kitanik
+---------- REACT -----------
+--CLASE1--------------------
+Angular /# archivos(.html/.css/.ts)/--> TipeScript
+React /1 solo archivo(.js)/---> JavaScript
+
+Comunicacion entre componenes DOM
+HAcia arriba se comunican con eventos
+Hacia abajo propiedades
+
+react / (.jsx)
+const elem = <div> codigo_html </div>
+
+como mostrar las variables {nombre}
+1. Mostrar HTML
+render(){
+ const = 
+ const =
+	return elements;
+}
+
+--Instalacion
+pasos
+
+en la carpeta/serc/app.js
+
+como llamo a otro componente, adentro de este </>
+como le paso info a otro componente </>
+De contenedor a listado
+1. En contenedor
+ <Listado listaPersonas={lista}/> 
+
+2. En listado
+console.log(this.props.listaPersonas);
+Te llega en (this.props)
+cuando se pushea la lista , se pushea div's 
