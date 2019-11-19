@@ -1,0 +1,21 @@
+<p>upload Components!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <!-- Foto comentario -->
+            <form action="">
+                <textarea class="form-control" name="comentario" [(ngModel)]="comentario"></textarea>
+
+                <select #valores (change)="select(valores.value)">
+                    <option value="0" selected disabled >Elegir Opcion</option>
+                    <option value="1">Valor 1</option>
+                    <option value="2">Valor 2</option>
+                </select>
+
+                <input type="file" (change)="onFileSelected($event)">
+                <button (click)="subir()" class="btn btn-primary">Subir Informacion</button> 
+            </form>
+        </div>
+    </div>
+</div>

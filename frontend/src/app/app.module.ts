@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { UploadComponent } from './components/upload/upload.component';
 //import { LazyComponent } from './components/lazy/lazy.component';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     LoginComponent,
     PerfilComponent,
     CarritoComponent,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,

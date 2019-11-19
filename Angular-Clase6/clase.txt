@@ -1,0 +1,21 @@
+Bindeo de doble direccion
+
+ <select (change)="select()">
+                    <option value="1">Valor 1</option>
+                    <option value="2">Valor 2</option>
+                </select>
+
+Cuando se cambia un select
+
+
+<select #valores (change)="select(valores)">
+Le paso toda la informacion del ´select, y todo lo de adentro´(DOM)
+Le paso eso a la funcion select(), el #valores se el name del select /le pasas toda esta data
+
+--Otra forma angular tiene la palabra reservada $event funciona como un this de lo anterior
+
+
+problemas en la bdservices del front porque todas las peticiones las pasamos como json --> tarnaformando la imagen en un JSON
+
+fs.createReadStream//lee el archivos
+fs.createWriteStream//crea

@@ -8,6 +8,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { AuthGuard } from 'src/app/auth.guard';
+import { UploadComponent } from 'src/app/components/upload/upload.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path : 'registro' , component: RegistroComponent},
   {path : 'login', component: LoginComponent},
   {path : 'carrito', component: CarritoComponent },
+  {path : 'upload', component: UploadComponent},
   {path : 'perfil', canActivate: [AuthGuard] ,component:PerfilComponent },
   {path : 'lazy', loadChildren : './components/lazy/lazy.module#LazyModule',canActivate: [AuthGuard]},
   {path : '**', redirectTo : 'home'}
