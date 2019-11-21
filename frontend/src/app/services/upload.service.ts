@@ -9,7 +9,9 @@ export class UploadService  extends BaseService{
 
     postData(obj){
       try {
-        this.setEndPoint('upload')
+        this.getHttpOptions(true);
+        this.setEndPoint('upload');
+        
         return this.post(obj)
       } catch (error) {
         throw error;
