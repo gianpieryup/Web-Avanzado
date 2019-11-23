@@ -11,6 +11,16 @@ async function getUsuario(id) {
     }
 }
 
+async function getDirecciones(id){
+	try {
+        let query = "select calle_d, altura_d, cp_d, piso_d,provincia_d from direcciones where id_u_d = ?";
+        const rows = await pool.query(query,[id]);
+        return rows; 
+    } catch (error) {
+        throw error;
+    }
+}
+
 async function putUsuarioDatos(nombre,apellido,telefono, id) {
     try {
 
@@ -33,4 +43,4 @@ async function putUsuarioPassword(password, id) {
     }
 }
 
-module.exports = {getUsuario, putUsuarioDatos,putUsuarioPassword}
+module.exports = {getUsuario, putUsuarioDatos,putUsuarioPassword,getDirecciones}

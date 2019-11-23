@@ -2,6 +2,7 @@ import { UsuariosService } from './../../services/usuarios.service';
 import { FormGroup , FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ModalManager } from 'ngb-modal';
 
 @Component({
   selector: 'app-perfil',
@@ -15,6 +16,8 @@ export class PerfilComponent implements OnInit {
   habilitar_password : boolean = false;
   historial : any [] = [];
 
+  modalR : any;
+  direcciones : any [] = [];
   showPassword() {
     this.habilitar_password = true;
     this.password = new FormGroup({
@@ -27,7 +30,7 @@ export class PerfilComponent implements OnInit {
     console.log(actualizar_pwd);
   }
 
-  constructor(private usuariosService : UsuariosService, private rooter : Router) { }
+  constructor(private usuariosService : UsuariosService, private rooter : Router,private modalServices : ModalManager) { }
 
   async ngOnInit() {
     let data : any = await this.usuariosService.getUsuario() ;
@@ -49,6 +52,12 @@ export class PerfilComponent implements OnInit {
       this.historial = respuesta_server.data;
       console.log(this.historial);
     }
+  }
+
+ async cargarDirecciones(mod){
+    let respuesta_server : any = await this.usuariosService.getDirecciones()
+    this.direcciones = respuesta_server.data
+    this.modalR = this.modalServices.open(mod)
   }
 
   async putUsuario(){

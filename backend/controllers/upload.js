@@ -17,10 +17,12 @@ router.post('/:id_cliente',upload.array('file',1),async(req,res,next)=>{
         }
 
         let nombre_imagen = uuid();
-
-    //    console.log(req.files[0]);
-    //cambiar para nuestros proyectos la ruta correcta del almacenamiento
-        if(req.files[0].mimetype == "images/jpeg" || req.files[0].mimetype == "images/png"){
+        console.log(req.files[0]);
+        
+        // cambiar para nuestros proyectos la ruta correcta del almacenamiento
+        // let cadena = hola/chau
+        // cadena.split('/) --> ['hola','chau']
+        if(req.files[0].mimetype == "image/jpeg" || req.files[0].mimetype == "image/png"){
             let ext = req.files[0].mimetype.split('/');
             ext = "."+ext[1]
             fs.createReadStream('./uploads/'+ req.files[0].filename).pipe(fs.createWriteStream('./uploads/'+ nombre_imagen + ext))

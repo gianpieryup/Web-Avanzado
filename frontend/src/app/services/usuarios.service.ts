@@ -51,7 +51,16 @@ export class UsuariosService extends BaseService {
     } catch (error) {
       throw error;
     }
-
   }
+
+  async getDirecciones() {
+    try {
+      this.setEndPoint('usuarios/direccion');//agregar unas rutas al backend
+      return this.get();
+    } catch (error) {
+      throw error;
+    }
+  }
+  
 
 }

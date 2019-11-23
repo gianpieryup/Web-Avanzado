@@ -49,6 +49,17 @@ router.get('/historial', async(req,res,next)=> {
     }
 })
 
+router.get('/direccion', async(req,res,next)=> {
+    try {
+        console.log("Mira la informacion que se guardo en el token, se instancio en el auth.js");
+        console.log("El id: ",req.id);
+        
+        let direccions_user = await usuariosModel.getDirecciones(req.id);
+        res.json({status : 'ok', data : direccions_user});
+    } catch (error) {
+        res.status(500).json({status : 'error'});
+    }
+})
 
 
 module.exports = router;

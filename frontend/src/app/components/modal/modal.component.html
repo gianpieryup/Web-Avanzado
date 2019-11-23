@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<button type="button" class="btn btn-primary" (click)="open(Modal)"> ABRIR MODAL </button>
+<button type="button" class="btn btn-primary" (click)="comprar()"> Comprar </button>
+
+<modal #Modal>
+<modal-header>Texto cabecera</modal-header>
+<modal-content>
+    <form action="">
+        <input type="text" class="form-control" placeholder="nombre">
+
+        <input type="text" class="form-control" placeholder="precio">
+
+        <button type="button" [disabled]="operacion" class="btn btn-primary" (click)="cargar()"><i *ngIf="operacion" class="fas fa-sync fa-spin"></i> <span>Cargar Producto</span> 
+        
+        </button>
+    </form>
+
+
+</modal-content>
+<modal-footer>Footer</modal-footer>
+</modal>

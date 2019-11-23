@@ -23,6 +23,7 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/carrito']">Carrito</a>
       </li>
+
       <ng-template #nologin>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
@@ -31,6 +32,10 @@
           <a class="nav-link" [routerLink]="['/registro']">Registrarte</a>
         </li>
       </ng-template>
+
+      <li class="nav-item active">
+        <a class="nav-link" > <i *ngIf="carritoCargado" class="fas fa-shopping-cart"></i></a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

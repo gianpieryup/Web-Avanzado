@@ -33,6 +33,7 @@ export class ProductoComponent implements OnInit {
     let product = {id_producto: this.id_producto };
     let res : any= await this.carritoService.cargarCarrito(product)
     if (res.status=="ok") {
+      localStorage.setItem('carrito','carrito_cargado');
       console.log(res.data);     
       this.router.navigate(['home']);
     } 

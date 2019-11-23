@@ -7,7 +7,7 @@ const fs = require('fs');
 const authModel = require('../models/authModel');
 
 router.post('/login/:id',async(req,res,next)=> {
-    console.log("Entra a ligin");
+    console.log("Entro al controlador auth del back");
     try {
 		let id_cliente = req.params.id;
         let login_usr = await authModel.loginUser(id_cliente,req.body.mail, md5(req.body.password));

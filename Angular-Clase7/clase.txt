@@ -1,0 +1,21 @@
+FRONT
+npm i ngb-modal --save
+
+
+crear:
+service: nav (ng g s services/nav)
+component: modal (ng g c components/modal)
+
+dentro del app.module.ts
+importar el nodemodule odal
+
+Modales/ como los de bosstrap1
+El modulo que bajamos me permite usar el tag <module></module>
+ #NOmbre dentro de una etiqueta es como un id
+
+en el input, si operacion es una variable booleana en el tS
+[disabled]="operacion" //de disablea, botom
+
+EventEmitter en nav.services
+
+RxJS(Reactive Wxtension  JAvascri´t)

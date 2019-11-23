@@ -52,4 +52,17 @@
             </ng-container> 
         </tbody>
     </table>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="cargarDirecciones(Modal)"> Mostrat direcciones </button>
+    <modal #Modal>
+        <modal-header>Direcciones</modal-header>
+        <modal-content>
+            <div *ngFor="let d of direcciones" >
+                <div>Calle: {{d.calle_d}} {{d.cp_d}}, piso {{d.piso_d}} </div>
+            </div>
+        </modal-content>
+        <modal-footer>Footer</modal-footer>
+    </modal>
+
 </div>
