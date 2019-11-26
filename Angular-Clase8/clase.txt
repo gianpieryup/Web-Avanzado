@@ -1,0 +1,53 @@
+putty (Putty, Puttyget)
+Winscp (visual)
+
+EC2
+Instancias > Instanciar el servidor
+Elegir ubunto
+Elejir la gratuita
+LAUNCH 
+Se genera un archivo (Key)
+
+
+autenticacion putty > Conexion> SSH > Auth >private key filr for autenticacion
+(con el .ppk)La clave privada
+
+Basicamente nos da un SO en el servidor/pero online ::TEnemos una consola ~NO una IDE~
+
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+apache
+mysql
+
+crear un usuario
+darle permisos
+Iniciar phpMyAdmin
+     
+limpiar pantalla de consola : clear
+
+Wincssp
+Nuevo sitio
+Nombre IP publica//lo mismo que putty
+Protocolo SFTP , Puerto 22
+usuario; ubunto
+[Avanzado ..]> SSH > Autentificacion > Archivo de clave privada
+Aceptar , guardar
+Darle nombre a la instancia de accceso al server
+Doble click en lo creado> le dan que si
+Tira la carpeta backend aca
+No pasar los node_mules eliminarlos y dentro npm i para crearlos
+
+en ubuntu
+/home/ubuntu# ls
+/home/ubuntu# mkdir miproyecto
+
+Como siempre dentro npm i
+
+Para asignar permisos a la carpeta
+Podemos editar estosa archivos , podemos abrir el entorno con visual
+
+.env
+el host es ip
+Crtl + Alt +h (para aparecer el .env)
+
