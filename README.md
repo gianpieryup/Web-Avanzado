@@ -15,3 +15,6 @@
 5. Problemas mas usuales
 - Compilar en la ruta correcta y con el `cmd` correcto el de node
 - Tener el archivo `.env` en el backend y bien configurado
+
+
+probando cambios
