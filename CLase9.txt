@@ -1,0 +1,75 @@
+Servidor
+
+NodeJS
+bin/www : PORT 3000
+
+POSTMAN
+HTTP://IP:3000
+
+PUERTOS DE ENTRADA (22,80,3306,3000)
+PUERTOS DE SALIDA
+
+UTN:
+PUERTOS DE SALIDO (80,443)
+
+aws
+ME DA UNA IP PUBLICA
+ELASTIC:IP
+1. SI REINICIO MI INSTANCIA POR CASUALIDAD, CAMBIA LA IP
+2. ELASTIC IP::USAR ESTA QUE NO CAMBIA
+[ACTION]
+|----> IP PRIVADA
+[CHECK ASOCIADA]
+
+SERVICIOS DE AMAZON
+ROUT 53
+
+En EL FRONT LA TERMINAL> NG BUILD
+TS->JS
+SE GENERA LA CARPETA (DIST)ESTA CARPETA TIENE TODOS NUESTRO PROTECTO COMPILADO EN JS
+ESTOS SON LOS ARCHIVOS QUE SUBIREMOS
+
+EN AWS ES3> GRUPOS DE RECURSOS > PROPIEDADES
+ALOJAMIENTOS DE SITIOS WEB ESTATICOS
+USAR ESTE BUCKED 
+LA RUTA Y LA RUTA POR DEFECTO (INDEX.HTML)
+EL SERVICIO NOS DA EL SERVER(EL LINK: GUARDAR EL LINK)
+EN AWS ES3> GRUPOS DE RECURSOS > PERMISOS
+POLITICAS DEL BASE
+|-> EDITAR
+QUITAR EL TILDADO QUE ESTA POR DEFECTO
+[POLITICAS DEL BACKED]
+
+EN PLOTICAS DEL BACKED
+COPIAR EL JSON DEL ARCHIVITO EN EL GITH SERVIDORES2/
+permisos :{
+	ESTE JSON
+	}
+
+en el putty del backend
+la consola: sudo npm install forever -g
+contrab(ejecutar tareas constantemente)
+genera un PDI
+sudo kill (nro)//para matar los procesos que no nos sirvan
+sudo forever start
+
+PID X ------> NOMBRE | PUERTO
+sudo fuser -k 3000/tcp
+esto cierra todos los pids que vengan de este puerto, asi no los eliminas de a uno
+
+(si te sale el error que esta el puerto en uso, matar los PIDS de este puerto)
+
+entrar a la ruta
+/etc/apache2
+cd sites-availible/
+sudo vim midominio.conf
+
+--Dentro de
+/etc/apache2/sites-enabled/
+
+--Estamos enlazando (simbolicamente)
+sudo ln -s /etc/apache2/sites-availible/dominio.conf /etc/apache2/sites-enabled/dominio.conf
+
+ __   __   __   __
+|  | ||_| |__  |_/
+|  | ||   |__  | \
