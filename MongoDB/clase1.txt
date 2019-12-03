@@ -1,0 +1,127 @@
+Mongo db
+
+MongoDB : C++ (orientados a documetnos (objetos))
+_________________________________
+|Base de datos			|
+|  Colecciones (tablas)		|
+|	Documentos (registros)	|
+
+2 servidores
+Identificadores : unicos a nivel global (toma los segundos , PID)
+Coleccion A | Coleccion B
+
+Se puede ejecutar codigo javascript
+fecha: new Date()
+
+_id : ObjectId() : encargada de generar codigos unicos para los ids. 
+
+Todos los ejecutables para inicializar mongo
+C:\Program Files\MongoDB\Server\3.6
+
+Fijense de tener esta carpeta, si no crearla a mano
+C:\data\db
+
+MySQL(levantado)		| mongod.exe
+MySQL (terminal) --> consultas 	| mongo.exe
+
+
+en la terminal
+
+1. show databases
+2. use [baseDatos] --funciona como create si no existe
+3. creamos una coleccion de registros 
+4. db (muestra la base en la que estoy parado)
+db.productos.insert( + enter
+{
+	nombre : 'anillo',
+	descripcion : 'anillo de oro',
+	stock : 10,	
+}
+Funciones de Mongo
+Insertar documentos dentro de una coleccion
+db.[colecion].insert(obj)
+
+.find() --select
+operadores mysql (= ,<> , > ,<)
+Operadores mongo ($eq, $not , )
+$gte : Mayor o igual a	| $gt : Mayor a
+$lte : Menor o igual a	| $lt : Menor a
+
+AND|
+db.productos.find(
+... {
+... nombre : {$eq : 'cadena'}
+... }
+... )
+
+OR |
+db.productos.find(
+... {
+... $or : [{stock :{$eq : 50}},
+	   {precio : {$gte : 30}}
+	  ]
+... }
+... )
+
+Buscar un elemento
+let data = db.coleccion.find() | cursor
+db.collection.findOne() #primerRegistro
+
+db.collection.deleteOne({})
+db.collection.deleteMany({}) #Borra los documnetos
+
+El deleteOne o Many nos borra los documentos .No nos borra la collection
+
+db.collection.drop() #Borra la collection 
+
+Actualizar registros
+db.productos.updateMany(
+	{disponibilidad : {$eq : 1}},--El primer parametro de update representa la condicion(where)
+	{$set : {disponibilidad : 0}} --El set de campos que quiera editar
+)
+
+
+--------------------------------
+Embellezer la consulta
+.pretty()
+
+** Sucede que mongo le da un id o bien se lo defino con _id
+
+------------------------------------------
+
+obj = [{ nombre : 'corona'}]
+db.products.insertMany(obj)
+
+insertOne(obj) --Me devuelve el id que de genero al momento de insertar
+
+//borrar en todos los campos
+$unset : se utiliza para eliminar keys
+db.products.updateMany({}, --condicion ninguna
+	{$unset : {disponibilidad: ''}
+})
+
+------------------------------
+Order by
+db.products.find().sort({precio :1}) --ordenar por precio asc(1)
+db.products.find().sort({precio :-1}) --ordenar por precio desc(-1)
+--Distintos order , , , 
+
+LIMIT
+--Corta los primeros x registros: .limit(x)
+
+Recorrer un array
+jorge = {
+	paises : ['Uruagyusa','Guatemala']
+}
+db.colecction.find({_id : 1 , $in : {paises : 'Urugay'}})
+
+				el select
+db.productos.find({condiciones},{propiedad1 : 1, propiedad : 0})
+El 1 implica traer la propiedad en el find
+El 0 implica NO traer la prop en el find
+El _id viene por default en cualquier find a menos que especificemos lo contrario con 0.
+
+***
+
+
+
