@@ -9,13 +9,11 @@ router.post('/:id_cliente', async(req,res,next) => {
     try {
 		console.log(req.params.id_cliente);
         let obj = {
-            id_cliente_usuario : req.params.id_cliente,
             nombre_usuario : req.body.nombre,
-            apellido_usuario : req.body.apellido,
             mail_usuario : req.body.mail,
+            password_usuario : md5(req.body.password),
             telefono_usuario : req.body.telefono,
-            codigo_mail_usuario : uuid(),
-            password_usuario : md5(req.body.password)
+            codigo_mail_usuario : uuid()   
         }
         let registro_ok = await registroModel.registrar(obj);
         if(registro_ok) {

@@ -1,0 +1,4 @@
+https://travistidwell.com/jsencrypt/demo/
+crear una carpeta claves:
+un archivo:  publica.pem
+un archivo:  privada.pem

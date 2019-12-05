@@ -27,7 +27,7 @@ Escritura
 ## Historial de Compra del Usuario [/usuarios/historial] --No olvidar [/..] empieza con /
 ### Historial de Compra[GET]   
 
-//Crear el archivo| [A MANO]
+//Crear el archivo A MANO//
 documentation.apib
 //Para generar el html a partir de este archivo
 aglio -i documentation.apib -o documentation.html

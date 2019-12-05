@@ -16,5 +16,8 @@
 - Compilar en la ruta correcta y con el `cmd` correcto el de node
 - Tener el archivo `.env` en el backend y bien configurado
 
+6. Consola
+- Borrar los datos de la consola `cls`
+
 
 probando cambios

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2019 a las 23:36:02
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.9
+-- Tiempo de generación: 05-12-2019 a las 13:34:00
+-- Versión del servidor: 10.1.29-MariaDB
+-- Versión de PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,7 +51,7 @@ CREATE TABLE `ejercicios` (
   `id_ejercicio` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
   `contenido` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_carga` datetime DEFAULT current_timestamp()
+  `fecha_carga` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -72,10 +72,10 @@ CREATE TABLE `posts` (
   `id_ejercicio` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `solucion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `likes` int(11) NOT NULL DEFAULT 0,
-  `dislikes` int(11) NOT NULL DEFAULT 0,
+  `likes` int(11) NOT NULL DEFAULT '0',
+  `dislikes` int(11) NOT NULL DEFAULT '0',
   `fecha_post` date NOT NULL,
-  `estado` smallint(6) NOT NULL DEFAULT 0
+  `estado` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -86,11 +86,11 @@ CREATE TABLE `posts` (
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `mail` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `rol` smallint(6) NOT NULL DEFAULT 0,
+  `nombre_usuario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `mail_usuario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `permisos_usuario` smallint(6) NOT NULL DEFAULT '0',
   `password_usuario` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-  `cuenta_confirmada` tinyint(1) NOT NULL DEFAULT 0
+  `cuenta_confirmada` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --

@@ -9,10 +9,10 @@ const cors = require('cors');
 
 dotenv.config();
 const fs = require('fs');
-//General controlers
 const authRouter = require('./controllers/auth');
 const registroRouter = require('./controllers/registro');
-
+const usuariosRouter = require('./controllers/usuarios');
+//const ejerciciosRouter = require('./controllers/ejercicios');
 
 // Admin controller
 const authAdminRouter = require('./controllers/admin/auth');
@@ -27,8 +27,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//secured
+secured = (req,res,next) => {
+  try {
+  
+    let token = req.headers.authorization; 
+  
+    token = token.replace('Bearer ','');
+    const publicKey = fs.readFileSync('./claves/publica.pem');
+    let decoded = jwt.verify(token, publicKey);
+  
+    req.id = decoded.id;
+    req.role = decoded.role;
+    next();
+  } catch (error) {
+    res.status(401).json({status : 'unauthorized'});
+  }
+}
+
+//USER
 app.use('/auth', authRouter);
 app.use('/registro', registroRouter);
+app.use('/usuarios', secured,usuariosRouter);
 
 // ADMIN 
 app.use('/admin/auth', authAdminRouter);
@@ -43,7 +63,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+ // res.render('error');
 });
 
 module.exports = app;
