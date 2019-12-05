@@ -5,9 +5,8 @@ const registroModel = require('../models/registroModel');
 const uuid = require('uuid');
 const md5 = require('md5');
 
-router.post('/:id_cliente', async(req,res,next) => {
+router.post('/', async(req,res,next) => {
     try {
-		console.log(req.params.id_cliente);
         let obj = {
             nombre_usuario : req.body.nombre,
             mail_usuario : req.body.mail,

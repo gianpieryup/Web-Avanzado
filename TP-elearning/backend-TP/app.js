@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 dotenv.config();
-const fs = require('fs');
+const fs = require('fs');//check
 const authRouter = require('./controllers/auth');
 const registroRouter = require('./controllers/registro');
 const usuariosRouter = require('./controllers/usuarios');

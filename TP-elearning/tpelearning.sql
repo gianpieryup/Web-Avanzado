@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2019 a las 13:34:00
+-- Tiempo de generación: 05-12-2019 a las 15:42:33
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -50,16 +50,17 @@ INSERT INTO `cursos` (`id_curso`, `descripcion`) VALUES
 CREATE TABLE `ejercicios` (
   `id_ejercicio` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
-  `contenido` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_carga` datetime DEFAULT CURRENT_TIMESTAMP
+  `enunciado` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_carga` datetime DEFAULT CURRENT_TIMESTAMP,
+  `solucion` varchar(255) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `ejercicios`
 --
 
-INSERT INTO `ejercicios` (`id_ejercicio`, `id_curso`, `contenido`, `fecha_carga`) VALUES
-(2, 1, 'link del la url de la imagen', '2019-11-10 19:16:17');
+INSERT INTO `ejercicios` (`id_ejercicio`, `id_curso`, `enunciado`, `fecha_carga`, `solucion`) VALUES
+(2, 1, 'link del la url de la imagen', '2019-11-10 19:16:17', '');
 
 -- --------------------------------------------------------
 
@@ -90,8 +91,19 @@ CREATE TABLE `usuarios` (
   `mail_usuario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `permisos_usuario` smallint(6) NOT NULL DEFAULT '0',
   `password_usuario` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-  `cuenta_confirmada` tinyint(1) NOT NULL DEFAULT '0'
+  `cuenta_confirmada` tinyint(1) NOT NULL DEFAULT '0',
+  `telefono_usuario` int(11) NOT NULL,
+  `salvavidas` int(11) NOT NULL DEFAULT '0',
+  `codigo_mail_usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `mail_usuario`, `permisos_usuario`, `password_usuario`, `cuenta_confirmada`, `telefono_usuario`, `salvavidas`, `codigo_mail_usuario`) VALUES
+(3, 'Gianpier', 'admin@gmail.com', 0, '08d6c05a21512a79a1dfeb9d2a8f262f', 0, 1123953136, 0, '2941aa63-31c9-4b42-8400-8fe6bcf3a7bf'),
+(4, 'Gianpier Yupanqui', 'gyupanquisalvatierra@gmail.com', 0, '08d6c05a21512a79a1dfeb9d2a8f262f', 0, 1123953136, 0, 'b653a4d8-ee8f-42f6-a726-47ecab190867');
 
 --
 -- Índices para tablas volcadas
@@ -150,7 +162,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
