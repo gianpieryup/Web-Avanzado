@@ -28,8 +28,10 @@ MySQL (terminal) --> consultas 	| mongo.exe
 en la terminal
 
 1. show databases
-2. use [baseDatos] --funciona como create si no existe
+2. use [baseDatos] 
 3. creamos una coleccion de registros 
+db.createCollection('collection');
+
 4. db (muestra la base en la que estoy parado)
 db.productos.insert( + enter
 {
@@ -122,6 +124,31 @@ El 0 implica NO traer la prop en el find
 El _id viene por default en cualquier find a menos que especificemos lo contrario con 0.
 
 ***
+Ejercicios
+Usuarios 
+	{
+		_id: 1,
+		nombre: 'Juan',
+		foto : 'miimagen.jpg',
+		apellido : 'peres',
+		edad : 20,
+		estado : 0,
+		mail: 'juan@gmail.com',
+		telefono : 12369,
+		password : 'password',
+		fecha_registro : new Date()
+	}
+
+------------------------------------------------------------------------
+a. Imprimir todos los usuarios de la plataforma
 
 
+b. Recuperar los primeros 5 usuarios que tengan mas de 18 años.
+c. Mostrar los usuarios de nombre : 'x' y con estado : 1
+d. Mostrar usuarios con edad mayor a 20 y que no tenga foto asociada
+e. Mostrar los usuarios ordenados por edad desc que cumplan nombre : 'x' y edad entre 20 y 30
+f. Actualizar los usuarios que tengan estado 0 a 1, que cumplan las condiciones :  mayores a 20 años y tengan foto asociada
+g. Borrar todos los usuarios cuyo estado sea 0 y la fecha de registro sea dos meses menor a la actual.
+h. Eliminar un usuario por mail
+i. Actualizar todos los datos de un usuario filtrando por ID
 
