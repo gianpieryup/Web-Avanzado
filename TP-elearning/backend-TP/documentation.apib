@@ -1,0 +1,109 @@
+# Group Registro
+## Formulario de Registro [/registro]
+###  Registrarte[POST]
++ Request 200 (application/json)
+    Location : /registro
+    + Body
+        {        
+            "nombre" : "Gianpier",
+            "mail" : "gyupanquisalvatierra@gmail.com",
+            "password" : 1234,
+            "telefono" : 1123953146
+        }
+    
++ Response 200 (application/json)
+   + Body
+        {
+            status: "ok",
+            message: "Se envio un correo a tu cuenta de mail"
+        }
+
+
+# Group Login
+## Formulario Login Usuario [/auth/login]
+###  Login Usuario [POST]
++ Request 200 (application/json)
+    Location : /auth/login
+    + Body
+        {        
+            "mail" : "gyupanquisalvatierra@gmail.com",
+            "password" : 1234
+        }
+    
++ Response 200 
+    + Body    
+        {
+            usuario:  {
+                "id": 1
+            },
+            JWT: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+        }
+
+# Group Usuario
+## Indormacion del Usuario [/usuarios]
+### Info Usuario[GET]   
++ Request 200 
+    + Headers 
+        {   
+            Authorization: Bearer eyJXXXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+        }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "ok",
+            "data": [
+                {
+                    "nombre" : "Gianpier",
+                    "mail" : "gyupanquisalvatierra@gmail.com",
+                    "password" : 1234,
+                    "telefono" : 1123953146
+                }
+            ]
+        }
+
+# Group Ejercicios
+## Vista Ejercicios [/ejercicios]
+### Lista Ejercicios[GET] 
+Location : /productos
++ Request 200
+    
++ Response 200 (application/json)
+   + Body
+    {
+        "status": "ok",
+        "data": [
+            {
+                "id_producto": 16,
+                "id_cliente_producto": 1,
+                "nombre_producto": "CHAIN DR",
+                "descripcion_producto": "Cadena para sectores exclusivos",
+                "foto_producto": "fotochain.png",
+                "visibilidad_producto": 1,
+                "precio_producto": 4201,
+                "stock_producto": 10
+            }]
+    }    
+
+## Ejercicio Especifico [/ejercicios/:idEjercicio]
+### Ejercicio Especifico [GET]     
++ Request 200 
+    + Headers
+        {
+            Location : /ejercicios/1
+         }
++ Response 200 (application/json)
+   + Body
+    {
+        "status": "ok",
+        "data":{      
+                "id_producto": 16,
+                "id_cliente_producto": 1,
+                "nombre_producto": "CHAIN DR",
+                "descripcion_producto": "Cadena para sectores exclusivos",
+                "foto_producto": "fotochain.png",
+                "visibilidad_producto": 1,
+                "precio_producto": 4201,
+                "stock_producto": 10
+            }
+    }    
+ 

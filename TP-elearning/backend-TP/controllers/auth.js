@@ -9,7 +9,7 @@ const authModel = require('../models/authModel');
 router.post('/login',async(req,res,next)=> {
     console.log("Entra a login");
     try {
-		//let id_cliente = req.params.id;
+
         let login_usr = await authModel.loginUser(req.body.mail, md5(req.body.password));
         if(login_usr.length > 0 ) {//Paso el Login
             const privateKey = fs.readFileSync('./claves/privada.pem','utf-8');
@@ -24,8 +24,7 @@ router.post('/login',async(req,res,next)=> {
                 var payload = {id : login_usr[0].id_usuario, role : 'user'};
             } else {
                 // administrador|seria (1)
-                var payload = {id : login_usr[0].id_usuario, role : 'user'};
-
+                var payload = {id : login_usr[0].id_usuario, role : 'admin'};
             }
             const usuario = {id : login_usr[0].id_usuario, nombre : login_usr[0].nombre_usuario};
             const token = jwt.sign(payload,privateKey,signOptions);

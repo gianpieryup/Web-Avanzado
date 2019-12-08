@@ -2,14 +2,17 @@ const pool = require('./../bd.js');
 const uuid = require('uuid');
 const mp = require('../mercadoPago')
 
+//LO DEJO POR QUE PUEDO ESCALAR A CREAR UNA TABLA DE REGISTRO PERO NO SI MUESTRO LOS MIO
+//LO QUE SI ME SIRVE ES LO DE MERCADO PAGO Y DE UPDATEAR LOS SALVAVIDAS DE LOS USUARIOS
+
 async function comprar(idUsuario) {
     try {
         let uuid_t = uuid();
-    let query = "select sum(precio_producto) as total from carrito join productos on (id_producto = id_producto_carrito) where id_compra_carrito is null and id_usuario_carrito = ?";
+       /* let query = "select sum(precio_producto) as total from carrito join productos on (id_producto = id_producto_carrito) where id_compra_carrito is null and id_usuario_carrito = ?";
 
     const row = await pool.query(query,idUsuario);
     console.log(row)
-    let monto = row[0].total;
+    let monto = row[0].total;*/
     console.log("El monto es: "+monto);
 
     let queryInsert = "insert into compra set ?"
@@ -58,7 +61,7 @@ async function comprar(idUsuario) {
     
 }
 
-async function historial(idUsuario) {
+/*async function historial(idUsuario) {
     try {
         let query = "select id_compra, monto_compra, fecha_compra from compra where id_usuario_compra = ?";
         const rows = await pool.query(query,idUsuario);
@@ -67,5 +70,5 @@ async function historial(idUsuario) {
     } catch (error) {
         throw error;
     }
-}
-module.exports = {comprar,historial} 
+}*/
+module.exports = {comprar} 

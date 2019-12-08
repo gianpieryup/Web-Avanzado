@@ -12,10 +12,12 @@ const fs = require('fs');//check
 const authRouter = require('./controllers/auth');
 const registroRouter = require('./controllers/registro');
 const usuariosRouter = require('./controllers/usuarios');
-//const ejerciciosRouter = require('./controllers/ejercicios');
+const ejerciciosRouter = require('./controllers/ejercicios');
+const postsRouter = require('./controllers/posts');
 
 // Admin controller
-const authAdminRouter = require('./controllers/admin/auth');
+// const postsAdminRouter = require('./controllers/admin/posts');
+// const usuariosAdminRouter = require('./controllers/admin/usuarios');
 
 var app = express();
 app.use(cors())
@@ -45,14 +47,17 @@ secured = (req,res,next) => {
   }
 }
 
+//_______________________________________________________________________________
 //USER
 app.use('/auth', authRouter);
 app.use('/registro', registroRouter);
 app.use('/usuarios', secured,usuariosRouter);
+app.use('/ejercicios', ejerciciosRouter);
+app.use('/posts', postsRouter);
 
 // ADMIN 
-app.use('/admin/auth', authAdminRouter);
-
+// app.use('/admin/posts', securedAdmin, postsAdminRouter);
+// app.use('/admin/usuarios', securedAdmin, usuariosAdminRouter);
 
 
 // error handler

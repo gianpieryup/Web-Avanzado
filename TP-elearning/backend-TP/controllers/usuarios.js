@@ -29,6 +29,7 @@ router.put('/changepassword/:id', async(req,res,next)=> {
 
 router.get('/', async(req,res,next)=> {
     try {
+        //en el JWT esta el {id : "el id del usuario logueado"}
         let usr_data = await usuariosModel.getUsuario(req.id);
         res.json({status : 'ok', data : usr_data});
     } catch (error) {

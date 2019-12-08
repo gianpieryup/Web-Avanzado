@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2019 a las 15:42:33
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.2.0
+-- Tiempo de generación: 08-12-2019 a las 00:40:47
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,7 +51,7 @@ CREATE TABLE `ejercicios` (
   `id_ejercicio` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
   `enunciado` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_carga` datetime DEFAULT CURRENT_TIMESTAMP,
+  `fecha_carga` datetime DEFAULT current_timestamp(),
   `solucion` varchar(255) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -72,12 +72,22 @@ CREATE TABLE `posts` (
   `id_post` int(11) NOT NULL,
   `id_ejercicio` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `solucion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `likes` int(11) NOT NULL DEFAULT '0',
-  `dislikes` int(11) NOT NULL DEFAULT '0',
+  `likes` int(11) NOT NULL DEFAULT 0,
+  `dislikes` int(11) NOT NULL DEFAULT 0,
   `fecha_post` date NOT NULL,
-  `estado` smallint(6) NOT NULL DEFAULT '0'
+  `estado` smallint(6) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `soluciones_compradas`
+--
+
+CREATE TABLE `soluciones_compradas` (
+  `id_usuario` int(11) NOT NULL,
+  `id_ejercicio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -89,11 +99,11 @@ CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `nombre_usuario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `mail_usuario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `permisos_usuario` smallint(6) NOT NULL DEFAULT '0',
+  `permisos_usuario` smallint(6) NOT NULL DEFAULT 0,
   `password_usuario` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-  `cuenta_confirmada` tinyint(1) NOT NULL DEFAULT '0',
+  `cuenta_confirmada` tinyint(1) NOT NULL DEFAULT 0,
   `telefono_usuario` int(11) NOT NULL,
-  `salvavidas` int(11) NOT NULL DEFAULT '0',
+  `salvavidas` int(11) NOT NULL DEFAULT 0,
   `codigo_mail_usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -127,6 +137,13 @@ ALTER TABLE `ejercicios`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id_post`),
+  ADD KEY `id_ejercicio` (`id_ejercicio`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `soluciones_compradas`
+--
+ALTER TABLE `soluciones_compradas`
   ADD KEY `id_ejercicio` (`id_ejercicio`),
   ADD KEY `id_usuario` (`id_usuario`);
 
@@ -180,6 +197,13 @@ ALTER TABLE `ejercicios`
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`id_ejercicio`) REFERENCES `ejercicios` (`id_ejercicio`),
   ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+--
+-- Filtros para la tabla `soluciones_compradas`
+--
+ALTER TABLE `soluciones_compradas`
+  ADD CONSTRAINT `soluciones_compradas_ibfk_1` FOREIGN KEY (`id_ejercicio`) REFERENCES `ejercicios` (`id_ejercicio`),
+  ADD CONSTRAINT `soluciones_compradas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
