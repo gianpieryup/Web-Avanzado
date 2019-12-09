@@ -1,9 +1,12 @@
 const pool = require('../bd');
 
-async function getAllPost() {
+//Funcion multiproposito
+// 0: pendiente, 1 = confirmado , 2 rechazado 
+// ISUSS : agregar un campo opcional que sea el curso: matematica /fisica
+async function getAllPost(estado) {
     try{
-        let query = "SELECT * FROM posts";
-        const rows = await pool.query(query);
+        let query = "SELECT * FROM posts where estado = ?";
+        const rows = await pool.query(query,estado);
         console.log(rows);
         
         return rows;
@@ -37,4 +40,15 @@ async function insertPost(obj) {
     }
 }
 
-module.exports = {getAllPost,getPost,insertPost}
+//Lo unico que se puede modificar de un post es el estado y se restringe para el admin
+async function updatePost(estado,id) {
+    try{
+        let query = "UPDATE ?? set estado = ? where id_post = ?";        
+        const rows = await pool.query(query,[process.env.TABLA_POST,estado,id]);
+
+    } catch(error) {
+        throw error;
+    }
+}
+
+module.exports = {getAllPost,getPost,insertPost,updatePost}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2019 a las 00:40:47
+-- Tiempo de generación: 08-12-2019 a las 19:27:37
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -44,34 +44,18 @@ INSERT INTO `cursos` (`id_curso`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ejercicios`
---
-
-CREATE TABLE `ejercicios` (
-  `id_ejercicio` int(11) NOT NULL,
-  `id_curso` int(11) NOT NULL,
-  `enunciado` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_carga` datetime DEFAULT current_timestamp(),
-  `solucion` varchar(255) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `ejercicios`
---
-
-INSERT INTO `ejercicios` (`id_ejercicio`, `id_curso`, `enunciado`, `fecha_carga`, `solucion`) VALUES
-(2, 1, 'link del la url de la imagen', '2019-11-10 19:16:17', '');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `posts`
 --
 
 CREATE TABLE `posts` (
   `id_post` int(11) NOT NULL,
-  `id_ejercicio` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `enunciado_ejercicio` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `solucion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `id_usuario_solucion` int(11) NOT NULL,
+  `sol_alternativa` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `id_usuario_sol_alternativa` int(11) NOT NULL,
   `likes` int(11) NOT NULL DEFAULT 0,
   `dislikes` int(11) NOT NULL DEFAULT 0,
   `fecha_post` date NOT NULL,
@@ -86,7 +70,7 @@ CREATE TABLE `posts` (
 
 CREATE TABLE `soluciones_compradas` (
   `id_usuario` int(11) NOT NULL,
-  `id_ejercicio` int(11) NOT NULL
+  `id_posts` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -126,26 +110,19 @@ ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id_curso`);
 
 --
--- Indices de la tabla `ejercicios`
---
-ALTER TABLE `ejercicios`
-  ADD PRIMARY KEY (`id_ejercicio`),
-  ADD KEY `id_curso` (`id_curso`);
-
---
 -- Indices de la tabla `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id_post`),
-  ADD KEY `id_ejercicio` (`id_ejercicio`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_curso` (`id_curso`);
 
 --
 -- Indices de la tabla `soluciones_compradas`
 --
 ALTER TABLE `soluciones_compradas`
-  ADD KEY `id_ejercicio` (`id_ejercicio`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_posts` (`id_posts`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -164,12 +141,6 @@ ALTER TABLE `cursos`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `ejercicios`
---
-ALTER TABLE `ejercicios`
-  MODIFY `id_ejercicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
@@ -186,24 +157,18 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Filtros para la tabla `ejercicios`
---
-ALTER TABLE `ejercicios`
-  ADD CONSTRAINT `ejercicios_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id_curso`);
-
---
 -- Filtros para la tabla `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`id_ejercicio`) REFERENCES `ejercicios` (`id_ejercicio`),
-  ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
+  ADD CONSTRAINT `posts_ibfk_3` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id_curso`);
 
 --
 -- Filtros para la tabla `soluciones_compradas`
 --
 ALTER TABLE `soluciones_compradas`
-  ADD CONSTRAINT `soluciones_compradas_ibfk_1` FOREIGN KEY (`id_ejercicio`) REFERENCES `ejercicios` (`id_ejercicio`),
-  ADD CONSTRAINT `soluciones_compradas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `soluciones_compradas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
+  ADD CONSTRAINT `soluciones_compradas_ibfk_3` FOREIGN KEY (`id_posts`) REFERENCES `posts` (`id_post`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

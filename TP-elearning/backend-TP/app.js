@@ -12,7 +12,6 @@ const fs = require('fs');//check
 const authRouter = require('./controllers/auth');
 const registroRouter = require('./controllers/registro');
 const usuariosRouter = require('./controllers/usuarios');
-const ejerciciosRouter = require('./controllers/ejercicios');
 const postsRouter = require('./controllers/posts');
 
 // Admin controller
@@ -52,7 +51,6 @@ secured = (req,res,next) => {
 app.use('/auth', authRouter);
 app.use('/registro', registroRouter);
 app.use('/usuarios', secured,usuariosRouter);
-app.use('/ejercicios', ejerciciosRouter);
 app.use('/posts', postsRouter);
 
 // ADMIN 
