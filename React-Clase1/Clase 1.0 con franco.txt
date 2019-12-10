@@ -1,0 +1,52 @@
+React (libreria) 
+Transparencia
+Flexibilidad
+JXS (Javascript XML)//react esta enchi en JXS
+
+App.js
+  render()
+	return(
+	  <h1>Prueba de react (map,find)</h1>
+	)
+
+
+class App extends Base {
+	//Manejo de estados y eventos
+}
+
+todo tiene una etiqueta de cierre
+los return siempre tienen que ir entre <div>...<div/>
+
+
+Si quiero usar una clase y no un afuncion
+Class app{
+   render(){
+	return (
+		<div>HOla mundo</div>
+		)
+   }
+}
+
+
+Arriba "" import React ,{Component} from 'react'
+
+onInit --> Metodo (Angular)
+React --> this.state{
+		nombre : 'franco',
+		}
+_________________________________________
+this.setState{
+	nombre : 'franquito'
+}
+
+Recargar solo el componente o toda la pagina, aca igual
+
+
+*Para manejar eventos y estados ,escribir
+constructor(){
+super():
+}
+
+ this.state = {
+      numero : "No hay numeros cargados"
+    }   {/*Como el On init "state" es una propiedad de component*/}

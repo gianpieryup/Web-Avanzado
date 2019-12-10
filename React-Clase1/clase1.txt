@@ -1,4 +1,5 @@
 Ingrid Kitanik
+
 ---------- REACT -----------
 --CLASE1--------------------
 Angular /# archivos(.html/.css/.ts)/--> TipeScript
@@ -19,10 +20,11 @@ render(){
 	return elements;
 }
 
---Instalacion
-pasos
+-------Instalacion-------------------------
+1. npm i -g create-react-app //instala React
+2. npx create-app-project react001 //crear el proyecto de react
 
-en la carpeta/serc/app.js
+en la carpeta/src/app.js
 
 como llamo a otro componente, adentro de este </>
 como le paso info a otro componente </>
