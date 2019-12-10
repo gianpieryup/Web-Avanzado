@@ -3,10 +3,10 @@ var router = express.Router();
 
 const postModel = require('../models/postModel');
 
-//Todos los post que accede cualquier usuario
+//Todos los post confirmados que accede cualquier usuario
 router.get('/', async(req,res,next)=> {
     try {
-        let post_pendientes = await postModel.getAllPost(0);
+        let post_pendientes = await postModel.getAllPost(1);
         res.json({ status : 'ok',data : post_pendientes});
 
     } catch(error) {

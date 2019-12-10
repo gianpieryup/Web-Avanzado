@@ -61,10 +61,10 @@
             ]
         }
 
-# Group Ejercicios
-## Vista Ejercicios [/ejercicios]
-### Lista Ejercicios[GET] 
-Location : /productos
+# Group POST
+## Vista de todos los Post [/ejercicios]
+### Lista Posts[GET] 
+Location : /posts
 + Request 200
     
 + Response 200 (application/json)
@@ -84,12 +84,12 @@ Location : /productos
             }]
     }    
 
-## Ejercicio Especifico [/ejercicios/:idEjercicio]
-### Ejercicio Especifico [GET]     
+## POST Especifico [/posts/:idPost]
+### POST Especifico [GET]     
 + Request 200 
     + Headers
         {
-            Location : /ejercicios/1
+            Location : /posts/1
          }
 + Response 200 (application/json)
    + Body
