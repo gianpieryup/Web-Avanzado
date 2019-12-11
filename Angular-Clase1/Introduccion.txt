@@ -13,7 +13,7 @@ Instalar Angular(solo 1 vez por equipo)
 npm install -g @angular/cli
 
 Como se si ya lo tengo instalado
-ng -v	| ng v (sin el guion para la ultima version)
+ng -v (versiones antiguas) || ng v (sin el guion para la ultima version)
 
 Crear Proyecto
 ng new nombreProyecto
