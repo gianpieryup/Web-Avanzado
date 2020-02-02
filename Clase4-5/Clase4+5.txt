@@ -14,7 +14,7 @@ Se instalan una sola vez
 //Hay un archivo `package.json` ,donde estara toda la informacion y las dependencias que use.
 
 4. Pararse dentro del proyecto:	    cd ejemplo1
-5. Descargar las dependencias: 	  npm install 
+5. Descargar las dependencias: 	  npm install | npm i
 6. Instalar Nodemon:	npm i nodemon -g //solo una ves | YA lo tengo nodemon -v?
 7. Ejecutar el proyecto:	nodemon npm start 
 
