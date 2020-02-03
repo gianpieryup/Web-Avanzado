@@ -6,6 +6,8 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "braces": "^3.0.2",
+    "constantinople": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.1.0",
@@ -21,6 +23,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "api-blueprint": "^0.1.8"
+    "api-blueprint": "^0.1.8",
+    "clean-css": "^4.2.3"
   }
 }
