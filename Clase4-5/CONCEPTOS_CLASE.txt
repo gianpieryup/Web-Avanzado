@@ -44,12 +44,7 @@ Se instala una sola vez
 > version? >> express --version
 Como creo un protecto con express 
 1. creamos una carpeta vacia llamada 'ejemplo'
-2. dentro de esta carpeta ejecutamos el siguiente comando para crear un archivo 
-llamado package.json
->> npm init >> 
-Nos preguntará desde la propia consola algunas cosas como el nombre y
-la versión del proyecto, etc(Por defecto dale enter a todo hasta que la consola  termine.) 
-Creará automáticamente el archivo package.json con nuestra información básica.
+
 >El modificador (--save) para instalar dependencias lo agrega en el package.json
 
 Creamos el archivo index.js que hemos indicado en package.json y le añadimos el siguiente código:
